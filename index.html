@@ -4,7 +4,275 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Révision E-Marketing</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f5f7fb;
+  color: #1f2937;
+  line-height: 1.6;
+}
+
+.hero {
+  min-height: 85vh;
+  background: linear-gradient(135deg, #14213d, #274690);
+  color: white;
+  padding: 25px 8%;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.nav-btn,
+.main-btn,
+button {
+  display: inline-block;
+  background: #fca311;
+  color: #111827;
+  padding: 12px 22px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.nav-btn:hover,
+.main-btn:hover,
+button:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.hero-content {
+  max-width: 750px;
+  margin-top: 130px;
+}
+
+.badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  padding: 8px 15px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: 52px;
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+.section {
+  padding: 60px 8%;
+}
+
+.section h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 32px;
+  color: #14213d;
+}
+
+.cards,
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
+}
+
+.card,
+.course-grid article,
+.question-block,
+.result-box {
+  background: white;
+  border-radius: 18px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.card h3,
+.course-grid h3 {
+  margin-bottom: 10px;
+  color: #274690;
+}
+
+.quiz-section {
+  background: #eef2ff;
+}
+
+.quiz-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.question-block {
+  margin-bottom: 25px;
+}
+
+.question-block h3 {
+  color: #14213d;
+  margin-bottom: 18px;
+  border-left: 5px solid #fca311;
+  padding-left: 12px;
+}
+
+.question {
+  padding: 18px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.question:last-child {
+  border-bottom: none;
+}
+
+.question p {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin: 8px 0;
+  cursor: pointer;
+}
+
+input[type="radio"] {
+  margin-right: 8px;
+}
+
+textarea {
+  width: 100%;
+  min-height: 95px;
+  padding: 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  resize: vertical;
+  font-family: inherit;
+  font-size: 15px;
+  outline: none;
+}
+
+textarea:focus {
+  border-color: #274690;
+  box-shadow: 0 0 0 3px rgba(39,70,144,0.15);
+}
+
+.feedback {
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 12px;
+  display: none;
+}
+
+.feedback.good {
+  display: block;
+  background: #dcfce7;
+  color: #166534;
+}
+
+.feedback.medium {
+  display: block;
+  background: #fef9c3;
+  color: #854d0e;
+}
+
+.feedback.bad {
+  display: block;
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.case-text {
+  background: #f8fafc;
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.actions {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.secondary {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+.result-box {
+  text-align: center;
+  border: 3px solid #fca311;
+}
+
+.result-box h2 {
+  margin-bottom: 15px;
+}
+
+#scoreText {
+  font-size: 30px;
+  font-weight: bold;
+  color: #274690;
+}
+
+#levelText {
+  margin-top: 12px;
+  font-size: 18px;
+}
+
+.hidden {
+  display: none;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  background: #14213d;
+  color: white;
+}
+
+@media (max-width: 700px) {
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .hero-content {
+    margin-top: 90px;
+  }
+
+  .section {
+    padding: 40px 5%;
+  }
+}
+
+  </style>
 </head>
 <body>
   <header class="hero">
@@ -221,9 +489,173 @@
   </main>
 
   <footer>
-    <p>© 2026 E-Revision — Site statique HTML, CSS et JavaScript pour GitHub Pages.</p>
+    <p>© 2026 E-Revision — Site statique HTML avec CSS et JavaScript intégrés pour GitHub Pages.</p>
   </footer>
 
-  <script src="assets/js/script.js"></script>
+  <script>
+const correctBtn = document.getElementById('correctBtn');
+const resetBtn = document.getElementById('resetBtn');
+const resultBox = document.getElementById('resultBox');
+const scoreText = document.getElementById('scoreText');
+const levelText = document.getElementById('levelText');
+
+function normalizeText(text) {
+  return text
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[’']/g, ' ')
+    .replace(/[^a-z0-9\s]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function keywordFound(answer, keyword) {
+  const cleanAnswer = normalizeText(answer);
+  const cleanKeyword = normalizeText(keyword);
+
+  if (!cleanKeyword) return false;
+
+  if (cleanAnswer.includes(cleanKeyword)) return true;
+
+  // Correction approximative simple : accepte quelques mots proches.
+  const synonyms = {
+    'numeriques': ['technologique', 'technologies', 'digital', 'digitale'],
+    'internet': ['web', 'en ligne', 'online'],
+    'reseaux sociaux': ['facebook', 'instagram', 'tiktok', 'social'],
+    'vendre': ['vente', 'ventes', 'commercialiser', 'acheter'],
+    'client': ['clients', 'consommateur', 'consommateurs'],
+    'manque': ['besoin', 'absence'],
+    'pouvoir': ['capacite', 'moyen'],
+    'achat': ['acheter', 'payer'],
+    'accord': ['consentement', 'accepter', 'autorisation'],
+    'dialoguer': ['parler', 'echanger', 'communiquer'],
+    'economiser': ['reduire', 'cout', 'couts', 'moins cher'],
+    'dynamiser': ['ameliorer', 'renforcer', 'image', 'marque'],
+    'engagement': ['likes', 'commentaires', 'partages', 'interaction']
+  };
+
+  if (synonyms[cleanKeyword]) {
+    return synonyms[cleanKeyword].some(word => cleanAnswer.includes(normalizeText(word)));
+  }
+
+  return false;
+}
+
+function correctQCM(question) {
+  const points = parseFloat(question.dataset.points);
+  const answer = question.dataset.answer;
+  const selected = question.querySelector('input[type="radio"]:checked');
+  const feedback = question.querySelector('.feedback');
+
+  if (!selected) {
+    feedback.className = 'feedback bad';
+    feedback.innerHTML = '❌ Aucune réponse choisie. Point obtenu : 0.';
+    return 0;
+  }
+
+  if (selected.value === answer) {
+    feedback.className = 'feedback good';
+    feedback.innerHTML = `✅ Bonne réponse. Point obtenu : ${points}.`;
+    return points;
+  }
+
+  feedback.className = 'feedback bad';
+  feedback.innerHTML = `❌ Mauvaise réponse. Bonne réponse : ${answer.toUpperCase()}. Point obtenu : 0.`;
+  return 0;
+}
+
+function correctOpen(question) {
+  const points = parseFloat(question.dataset.points);
+  const keywords = question.dataset.keywords.split(',');
+  const model = question.dataset.model;
+  const textarea = question.querySelector('textarea');
+  const feedback = question.querySelector('.feedback');
+  const answer = textarea.value.trim();
+
+  if (answer.length < 3) {
+    feedback.className = 'feedback bad';
+    feedback.innerHTML = `❌ Réponse vide ou trop courte. Point obtenu : 0.<br><strong>Correction :</strong> ${model}`;
+    return 0;
+  }
+
+  let found = 0;
+  let foundWords = [];
+
+  keywords.forEach(keyword => {
+    if (keywordFound(answer, keyword)) {
+      found++;
+      foundWords.push(keyword.trim());
+    }
+  });
+
+  const ratio = found / keywords.length;
+  let obtained = 0;
+
+  if (ratio >= 0.65) {
+    obtained = points;
+  } else if (ratio >= 0.35) {
+    obtained = points * 0.6;
+  } else if (ratio >= 0.15) {
+    obtained = points * 0.3;
+  } else {
+    obtained = 0;
+  }
+
+  obtained = Math.round(obtained * 100) / 100;
+
+  if (obtained === points) {
+    feedback.className = 'feedback good';
+    feedback.innerHTML = `✅ Réponse acceptée. Points obtenus : ${obtained}/${points}.<br><strong>Mots reconnus :</strong> ${foundWords.join(', ')}<br><strong>Correction modèle :</strong> ${model}`;
+  } else if (obtained > 0) {
+    feedback.className = 'feedback medium';
+    feedback.innerHTML = `⚠️ Réponse partiellement correcte. Points obtenus : ${obtained}/${points}.<br><strong>Mots reconnus :</strong> ${foundWords.join(', ') || 'peu de mots'}<br><strong>Correction modèle :</strong> ${model}`;
+  } else {
+    feedback.className = 'feedback bad';
+    feedback.innerHTML = `❌ Réponse insuffisante. Points obtenus : 0/${points}.<br><strong>Correction modèle :</strong> ${model}`;
+  }
+
+  return obtained;
+}
+
+correctBtn.addEventListener('click', () => {
+  let total = 0;
+
+  document.querySelectorAll('.question').forEach(question => {
+    if (question.classList.contains('qcm')) {
+      total += correctQCM(question);
+    } else if (question.classList.contains('open')) {
+      total += correctOpen(question);
+    }
+  });
+
+  total = Math.round(total * 100) / 100;
+  resultBox.classList.remove('hidden');
+  scoreText.textContent = `Votre cote : ${total} / 20`;
+
+  if (total >= 16) {
+    levelText.textContent = 'Excellent travail. Tu maîtrises très bien le cours.';
+  } else if (total >= 12) {
+    levelText.textContent = 'Bon résultat. Il faut encore revoir quelques notions.';
+  } else if (total >= 10) {
+    levelText.textContent = 'Moyen. Tu as les bases, mais tu dois encore réviser.';
+  } else {
+    levelText.textContent = 'Insuffisant. Revois surtout les définitions, les 5S, les KPI et les canaux digitaux.';
+  }
+
+  resultBox.scrollIntoView({ behavior: 'smooth' });
+});
+
+resetBtn.addEventListener('click', () => {
+  document.getElementById('quizForm').reset();
+  document.querySelectorAll('.feedback').forEach(feedback => {
+    feedback.className = 'feedback';
+    feedback.innerHTML = '';
+  });
+  resultBox.classList.add('hidden');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+  </script>
 </body>
 </html>
