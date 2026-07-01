@@ -1,661 +1,569 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Révision E-Marketing</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study With Me - Révision GRH</title>
+
   <style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
 
-html {
-  scroll-behavior: smooth;
-}
+    body {
+      background: #f7f3ff;
+      color: #222;
+      line-height: 1.6;
+    }
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: #f5f7fb;
-  color: #1f2937;
-  line-height: 1.6;
-}
+    header {
+      background: linear-gradient(135deg, #6d28d9, #a855f7);
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
 
-.hero {
-  min-height: 85vh;
-  background: linear-gradient(135deg, #14213d, #274690);
-  color: white;
-  padding: 25px 8%;
-}
+    header h1 {
+      font-size: 38px;
+      margin-bottom: 10px;
+    }
 
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+    header p {
+      font-size: 18px;
+    }
 
-.logo {
-  font-size: 24px;
-  font-weight: bold;
-  letter-spacing: 1px;
-}
+    nav {
+      background: white;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
 
-.nav-btn,
-.main-btn,
-button {
-  display: inline-block;
-  background: #fca311;
-  color: #111827;
-  padding: 12px 22px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: bold;
-  border: none;
-  cursor: pointer;
-  transition: 0.3s;
-}
+    nav a {
+      text-decoration: none;
+      color: #6d28d9;
+      font-weight: bold;
+      margin: 0 12px;
+    }
 
-.nav-btn:hover,
-.main-btn:hover,
-button:hover {
-  transform: translateY(-2px);
-  opacity: 0.9;
-}
+    nav a:hover {
+      color: #4c1d95;
+    }
 
-.hero-content {
-  max-width: 750px;
-  margin-top: 130px;
-}
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 20px;
+    }
 
-.badge {
-  display: inline-block;
-  background: rgba(255,255,255,0.15);
-  padding: 8px 15px;
-  border-radius: 20px;
-  margin-bottom: 20px;
-}
+    .intro {
+      background: white;
+      padding: 25px;
+      border-radius: 14px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+      margin-bottom: 30px;
+      text-align: center;
+    }
 
-.hero h1 {
-  font-size: 52px;
-  margin-bottom: 20px;
-  line-height: 1.1;
-}
+    .intro h2 {
+      color: #6d28d9;
+      margin-bottom: 10px;
+    }
 
-.hero p {
-  font-size: 18px;
-  margin-bottom: 25px;
-}
+    .chapter {
+      margin-bottom: 35px;
+    }
 
-.section {
-  padding: 60px 8%;
-}
+    .chapter-title {
+      background: #6d28d9;
+      color: white;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 18px;
+      font-size: 22px;
+    }
 
-.section h2 {
-  text-align: center;
-  margin-bottom: 30px;
-  font-size: 32px;
-  color: #14213d;
-}
+    .question-card {
+      background: white;
+      border-left: 6px solid #8b5cf6;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 18px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    }
 
-.cards,
-.course-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 20px;
-}
+    .question-card h3 {
+      color: #4c1d95;
+      margin-bottom: 10px;
+    }
 
-.card,
-.course-grid article,
-.question-block,
-.result-box {
-  background: white;
-  border-radius: 18px;
-  padding: 25px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-}
+    .question-card p {
+      margin-bottom: 12px;
+    }
 
-.card h3,
-.course-grid h3 {
-  margin-bottom: 10px;
-  color: #274690;
-}
+    button {
+      background: #8b5cf6;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 8px;
+    }
 
-.quiz-section {
-  background: #eef2ff;
-}
+    button:hover {
+      background: #6d28d9;
+    }
 
-.quiz-header {
-  text-align: center;
-  margin-bottom: 30px;
-}
+    .answer {
+      display: none;
+      margin-top: 15px;
+      background: #f1e9ff;
+      border-radius: 10px;
+      padding: 15px;
+      border: 1px solid #d8c7ff;
+    }
 
-.question-block {
-  margin-bottom: 25px;
-}
+    .answer strong {
+      color: #4c1d95;
+    }
 
-.question-block h3 {
-  color: #14213d;
-  margin-bottom: 18px;
-  border-left: 5px solid #fca311;
-  padding-left: 12px;
-}
+    .quiz-box {
+      background: white;
+      padding: 25px;
+      border-radius: 14px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+      margin-top: 30px;
+    }
 
-.question {
-  padding: 18px 0;
-  border-bottom: 1px solid #e5e7eb;
-}
+    .quiz-box h2 {
+      color: #6d28d9;
+      margin-bottom: 15px;
+      text-align: center;
+    }
 
-.question:last-child {
-  border-bottom: none;
-}
+    .quiz-question {
+      margin-bottom: 20px;
+      padding: 15px;
+      background: #faf7ff;
+      border-radius: 10px;
+    }
 
-.question p {
-  font-weight: bold;
-  margin-bottom: 10px;
-}
+    .quiz-question h4 {
+      margin-bottom: 10px;
+      color: #4c1d95;
+    }
 
-label {
-  display: block;
-  margin: 8px 0;
-  cursor: pointer;
-}
+    .quiz-question label {
+      display: block;
+      margin: 8px 0;
+      cursor: pointer;
+    }
 
-input[type="radio"] {
-  margin-right: 8px;
-}
+    #result {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+      color: #4c1d95;
+    }
 
-textarea {
-  width: 100%;
-  min-height: 95px;
-  padding: 14px;
-  border: 1px solid #cbd5e1;
-  border-radius: 12px;
-  resize: vertical;
-  font-family: inherit;
-  font-size: 15px;
-  outline: none;
-}
+    footer {
+      background: #4c1d95;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      margin-top: 40px;
+    }
 
-textarea:focus {
-  border-color: #274690;
-  box-shadow: 0 0 0 3px rgba(39,70,144,0.15);
-}
+    .note {
+      background: #fff7d6;
+      border-left: 5px solid #facc15;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
 
-.feedback {
-  margin-top: 12px;
-  padding: 12px;
-  border-radius: 12px;
-  display: none;
-}
+    @media screen and (max-width: 768px) {
+      header h1 {
+        font-size: 28px;
+      }
 
-.feedback.good {
-  display: block;
-  background: #dcfce7;
-  color: #166534;
-}
+      nav a {
+        display: block;
+        margin: 8px 0;
+      }
 
-.feedback.medium {
-  display: block;
-  background: #fef9c3;
-  color: #854d0e;
-}
+      .container {
+        padding: 12px;
+      }
 
-.feedback.bad {
-  display: block;
-  background: #fee2e2;
-  color: #991b1b;
-}
-
-.case-text {
-  background: #f8fafc;
-  padding: 15px;
-  border-radius: 12px;
-  margin-bottom: 15px;
-}
-
-.actions {
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 30px 0;
-}
-
-.secondary {
-  background: #e5e7eb;
-  color: #111827;
-}
-
-.result-box {
-  text-align: center;
-  border: 3px solid #fca311;
-}
-
-.result-box h2 {
-  margin-bottom: 15px;
-}
-
-#scoreText {
-  font-size: 30px;
-  font-weight: bold;
-  color: #274690;
-}
-
-#levelText {
-  margin-top: 12px;
-  font-size: 18px;
-}
-
-.hidden {
-  display: none;
-}
-
-footer {
-  text-align: center;
-  padding: 25px;
-  background: #14213d;
-  color: white;
-}
-
-@media (max-width: 700px) {
-  .hero h1 {
-    font-size: 36px;
-  }
-
-  .hero-content {
-    margin-top: 90px;
-  }
-
-  .section {
-    padding: 40px 5%;
-  }
-}
-
+      .chapter-title {
+        font-size: 19px;
+      }
+    }
   </style>
 </head>
-<body>
-  <header class="hero">
-    <nav class="navbar">
-      <div class="logo">E-Revision</div>
-      <a href="#quiz" class="nav-btn">Commencer</a>
-    </nav>
 
-    <div class="hero-content">
-      <p class="badge">Plateforme de révision en ligne</p>
-      <h1>Réviser l’E-Marketing facilement</h1>
-      <p>
-        Lis les rappels de cours, réponds aux questions, puis obtiens une cote sur 20
-        avec une correction automatique même si ta réponse est approximative.
-      </p>
-      <a href="#quiz" class="main-btn">Passer le test</a>
-    </div>
+<body>
+
+  <header>
+    <h1>Study With Me</h1>
+    <p>Site de révision pour les étudiants - Gestion des Ressources Humaines</p>
   </header>
 
-  <main>
-    <section class="section intro">
-      <h2>Comment ça marche ?</h2>
-      <div class="cards">
-        <div class="card">
-          <h3>1. Réviser</h3>
-          <p>Tu relis les notions importantes du cours d’E-Marketing.</p>
+  <nav>
+    <a href="#questions">Questions</a>
+    <a href="#quiz">Quiz</a>
+    <a href="#correction">Correction</a>
+  </nav>
+
+  <div class="container">
+
+    <section class="intro">
+      <h2>Révision GRH</h2>
+      <p>
+        Cette page aide les étudiants à réviser les questions importantes du cours de 
+        Gestion des Ressources Humaines. Lisez d’abord la question, essayez de répondre,
+        puis cliquez sur le bouton pour voir la réponse.
+      </p>
+    </section>
+
+    <section id="questions">
+
+      <div class="chapter">
+        <h2 class="chapter-title">Questions de révision avec réponses</h2>
+
+        <div class="question-card">
+          <h3>1. Les étapes du recrutement</h3>
+          <p>
+            Vous êtes chef d’entreprise et vous décidez de procéder au recrutement d’un directeur
+            en charge des services informatiques au sein de votre entreprise. Énumérez les différentes
+            étapes de recrutement que vous allez utiliser pour ce poste.
+          </p>
+
+          <button onclick="toggleAnswer('answer1')">Voir la réponse</button>
+
+          <div class="answer" id="answer1">
+            <p><strong>Réponse :</strong></p>
+            <p>
+              Pour recruter un directeur chargé des services informatiques, il faut suivre plusieurs étapes :
+            </p>
+            <ol>
+              <li><strong>Identification du besoin :</strong> déterminer pourquoi l’entreprise a besoin d’un directeur informatique.</li>
+              <li><strong>Définition du profil recherché :</strong> préciser les compétences, diplômes, expériences et qualités nécessaires.</li>
+              <li><strong>Publication de l’offre :</strong> diffuser l’annonce en interne et en externe.</li>
+              <li><strong>Réception et sélection des candidatures :</strong> analyser les CV et lettres de motivation.</li>
+              <li><strong>Entretiens de sélection :</strong> rencontrer les candidats retenus pour vérifier leurs compétences et motivations.</li>
+              <li><strong>Tests éventuels :</strong> tester les connaissances techniques, la gestion d’équipe et la capacité de décision.</li>
+              <li><strong>Choix du candidat :</strong> retenir le candidat le plus compétent et le plus adapté au poste.</li>
+              <li><strong>Décision d’embauche :</strong> préparer le contrat et officialiser l’engagement.</li>
+              <li><strong>Accueil et intégration :</strong> présenter l’entreprise, l’équipe, les outils et les missions au nouveau directeur.</li>
+            </ol>
+          </div>
         </div>
-        <div class="card">
-          <h3>2. Répondre</h3>
-          <p>Tu réponds aux QCM et aux questions ouvertes.</p>
+
+        <div class="question-card">
+          <h3>2. Objectifs d’un organigramme</h3>
+          <p>
+            Quels sont les principaux objectifs d’un organigramme dans une entreprise ?
+          </p>
+
+          <button onclick="toggleAnswer('answer2')">Voir la réponse</button>
+
+          <div class="answer" id="answer2">
+            <p><strong>Réponse :</strong></p>
+            <p>
+              Un organigramme a pour objectif de représenter la structure d’une entreprise.
+              Il permet de montrer les différents services, les niveaux hiérarchiques, les responsabilités
+              de chaque poste et les relations entre les travailleurs.
+            </p>
+            <p>
+              Il aide aussi à mieux comprendre qui dépend de qui, qui prend les décisions,
+              comment circule l’information et comment les tâches sont réparties dans l’entreprise.
+            </p>
+          </div>
         </div>
-        <div class="card">
-          <h3>3. Voir la cote</h3>
-          <p>Le site calcule ta note sur 20 et affiche une correction claire.</p>
+
+        <div class="question-card">
+          <h3>3. Les trois niveaux de compétence</h3>
+          <p>
+            Décrivez et expliquez les trois principaux niveaux de compétence au sein d’une entreprise.
+          </p>
+
+          <button onclick="toggleAnswer('answer3')">Voir la réponse</button>
+
+          <div class="answer" id="answer3">
+            <p><strong>Réponse :</strong></p>
+            <p>
+              Les trois principaux niveaux de compétence dans une entreprise sont :
+            </p>
+            <ol>
+              <li>
+                <strong>Les compétences individuelles :</strong> ce sont les connaissances, capacités et qualités propres à un employé.
+                Exemple : un informaticien qui sait programmer ou réparer un ordinateur.
+              </li>
+              <li>
+                <strong>Les compétences collectives :</strong> ce sont les compétences développées par un groupe ou une équipe.
+                Exemple : une équipe informatique capable de gérer ensemble un réseau d’entreprise.
+              </li>
+              <li>
+                <strong>Les compétences organisationnelles :</strong> ce sont les capacités globales de l’entreprise.
+                Exemple : la capacité de l’entreprise à innover, à bien organiser le travail et à atteindre ses objectifs.
+              </li>
+            </ol>
+          </div>
         </div>
+
+        <div class="question-card">
+          <h3>4. Rôle de la formation des employés</h3>
+          <p>
+            Quel est le rôle principal de la formation des employés dans une entreprise ?
+          </p>
+
+          <button onclick="toggleAnswer('answer4')">Voir la réponse</button>
+
+          <div class="answer" id="answer4">
+            <p><strong>Réponse :</strong></p>
+            <p>
+              Le rôle principal de la formation est d’améliorer les compétences des employés
+              afin qu’ils puissent mieux accomplir leur travail.
+            </p>
+            <p>
+              La formation permet aussi d’augmenter la performance, d’adapter les travailleurs
+              aux nouvelles technologies, de renforcer leur efficacité professionnelle, de faciliter
+              l’intégration des nouveaux employés et de favoriser leur motivation et leur fidélisation.
+            </p>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <h3>5. Différence entre rémunération et salaire</h3>
+          <p>
+            Donnez la différence qui existe entre la rémunération et le salaire.
+          </p>
+
+          <button onclick="toggleAnswer('answer5')">Voir la réponse</button>
+
+          <div class="answer" id="answer5">
+            <p><strong>Réponse :</strong></p>
+            <p>
+              Le <strong>salaire</strong> est la somme d’argent versée régulièrement à un travailleur
+              en échange de son travail.
+            </p>
+            <p>
+              La <strong>rémunération</strong> est plus large que le salaire. Elle comprend le salaire,
+              mais aussi les primes, les bonus, les avantages sociaux, les indemnités et toutes les autres
+              formes de compensation accordées à l’employé.
+            </p>
+            <p>
+              Donc, le salaire fait partie de la rémunération, mais la rémunération ne se limite pas seulement au salaire.
+            </p>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <h3>6. Signification du vandalisme</h3>
+          <p>
+            Expliquez en vos propres mots la signification du terme « vandalisme ».
+          </p>
+
+          <button onclick="toggleAnswer('answer6')">Voir la réponse</button>
+
+          <div class="answer" id="answer6">
+            <p><strong>Réponse :</strong></p>
+            <p>
+              Le vandalisme est le fait de détruire, abîmer ou détériorer volontairement un bien
+              qui appartient à quelqu’un, à une entreprise ou à l’État.
+            </p>
+            <p>
+              Exemple : casser des chaises, détruire du matériel informatique, écrire sur les murs,
+              endommager les portes, les bancs ou les équipements d’une entreprise.
+            </p>
+            <p>
+              En milieu professionnel, le vandalisme nuit au bon fonctionnement de l’entreprise
+              et peut entraîner des sanctions.
+            </p>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <h3>7. Droit du travail en milieu professionnel congolais</h3>
+          <p>
+            En quoi consiste le droit du travail en milieu professionnel congolais ?
+          </p>
+
+          <button onclick="toggleAnswer('answer7')">Voir la réponse</button>
+
+          <div class="answer" id="answer7">
+            <p><strong>Réponse :</strong></p>
+            <p>
+              Le droit du travail en milieu professionnel congolais est l’ensemble des règles qui organisent
+              les relations entre l’employeur et l’employé.
+            </p>
+            <p>
+              Il protège les droits des travailleurs et précise aussi leurs obligations. Il encadre notamment
+              le contrat de travail, la rémunération, les heures de travail, les congés, les avantages sociaux,
+              la sécurité au travail, la gestion des conflits et les conditions de travail.
+            </p>
+            <p>
+              Son objectif est d’assurer un fonctionnement harmonieux de l’entreprise tout en protégeant
+              la dignité, la sécurité et les intérêts des travailleurs.
+            </p>
+          </div>
+        </div>
+
       </div>
     </section>
 
-    <section class="section course">
-      <h2>Résumé rapide du cours</h2>
-      <div class="course-grid">
-        <article>
-          <h3>Marketing digital</h3>
-          <p>Utilisation des technologies numériques, sites web, réseaux sociaux, applications, e-mailing et mobiles pour atteindre les objectifs marketing.</p>
-        </article>
-        <article>
-          <h3>Mix marketing</h3>
-          <p>Le mix traditionnel comprend Produit, Prix, Place et Promotion. Pour les services, on ajoute Personnes, Processus et Preuve physique.</p>
-        </article>
-        <article>
-          <h3>Canaux digitaux</h3>
-          <p>SEO, SEA, e-mailing, réseaux sociaux, publicité display, relations publiques digitales et partenariats digitaux.</p>
-        </article>
-        <article>
-          <h3>KPI</h3>
-          <p>Indicateurs permettant de mesurer la performance : trafic, taux de conversion, taux d’engagement, taux d’ouverture, CPC, ROI.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="quiz" class="section quiz-section">
-      <div class="quiz-header">
-        <h2>Examen d’E-Marketing</h2>
-        <p>Total : <strong>20 points</strong>. Réponds puis clique sur corriger.</p>
-      </div>
+    <section id="quiz" class="quiz-box">
+      <h2>Quiz rapide</h2>
 
       <form id="quizForm">
-        <div class="question-block">
-          <h3>I. QCM — 5 points</h3>
 
-          <div class="question qcm" data-points="1" data-answer="b">
-            <p>1. Le marketing cherche principalement à :</p>
-            <label><input type="radio" name="q1" value="a"> Créer les besoins des consommateurs</label>
-            <label><input type="radio" name="q1" value="b"> Prévoir, stimuler et adapter l’offre aux désirs des consommateurs</label>
-            <label><input type="radio" name="q1" value="c"> Vendre uniquement par la publicité</label>
-            <label><input type="radio" name="q1" value="d"> Supprimer la concurrence</label>
-            <div class="feedback"></div>
-          </div>
-
-          <div class="question qcm" data-points="1" data-answer="a">
-            <p>2. Le mix marketing traditionnel est composé de :</p>
-            <label><input type="radio" name="q2" value="a"> Produit, Prix, Place, Promotion</label>
-            <label><input type="radio" name="q2" value="b"> Produit, Publicité, Profit, Personnel</label>
-            <label><input type="radio" name="q2" value="c"> Prix, Partenariat, Processus, Promotion</label>
-            <label><input type="radio" name="q2" value="d"> Produit, Permission, Purple Cow, Place</label>
-            <div class="feedback"></div>
-          </div>
-
-          <div class="question qcm" data-points="1" data-answer="b">
-            <p>3. Les réseaux sociaux officiels d’une entreprise sont généralement :</p>
-            <label><input type="radio" name="q3" value="a"> Paid media</label>
-            <label><input type="radio" name="q3" value="b"> Owned media</label>
-            <label><input type="radio" name="q3" value="c"> Earned media</label>
-            <label><input type="radio" name="q3" value="d"> Offline media</label>
-            <div class="feedback"></div>
-          </div>
-
-          <div class="question qcm" data-points="1" data-answer="b">
-            <p>4. Le SEO signifie :</p>
-            <label><input type="radio" name="q4" value="a"> Publicité payante sur les moteurs de recherche</label>
-            <label><input type="radio" name="q4" value="b"> Optimisation naturelle pour les moteurs de recherche</label>
-            <label><input type="radio" name="q4" value="c"> Envoi automatique d’e-mails</label>
-            <label><input type="radio" name="q4" value="d"> Analyse des ventes physiques</label>
-            <div class="feedback"></div>
-          </div>
-
-          <div class="question qcm" data-points="1" data-answer="a">
-            <p>5. Un KPI sert à :</p>
-            <label><input type="radio" name="q5" value="a"> Mesurer la performance d’une action marketing</label>
-            <label><input type="radio" name="q5" value="b"> Créer un site web</label>
-            <label><input type="radio" name="q5" value="c"> Remplacer une stratégie digitale</label>
-            <label><input type="radio" name="q5" value="d"> Augmenter automatiquement les ventes</label>
-            <div class="feedback"></div>
-          </div>
+        <div class="quiz-question">
+          <h4>1. Quelle est la première étape du recrutement ?</h4>
+          <label><input type="radio" name="q1" value="0"> L’entretien d’embauche</label>
+          <label><input type="radio" name="q1" value="1"> L’identification du besoin</label>
+          <label><input type="radio" name="q1" value="0"> La signature du contrat</label>
         </div>
 
-        <div class="question-block">
-          <h3>II. Définitions — 5 points</h3>
-
-          <div class="question open" data-points="1" data-keywords="manque,fondamental,sentiment,besoin" data-model="Un besoin est un sentiment de manque fondamental, comme manger, se vêtir ou être en sécurité.">
-            <p>6. Définissez le besoin.</p>
-            <textarea name="q6" placeholder="Écris ta réponse ici..."></textarea>
-            <div class="feedback"></div>
-          </div>
-
-          <div class="question open" data-points="1" data-keywords="culturel,spécifique,satisfaire,besoin,moyen" data-model="Un désir est un moyen culturel spécifique utilisé pour satisfaire un besoin.">
-            <p>7. Définissez le désir.</p>
-            <textarea name="q7" placeholder="Écris ta réponse ici..."></textarea>
-            <div class="feedback"></div>
-          </div>
-
-          <div class="question open" data-points="1" data-keywords="désir,pouvoir,achat,soutenu" data-model="Une demande est un désir soutenu par un pouvoir d’achat.">
-            <p>8. Définissez la demande.</p>
-            <textarea name="q8" placeholder="Écris ta réponse ici..."></textarea>
-            <div class="feedback"></div>
-          </div>
-
-          <div class="question open" data-points="1" data-keywords="technologies,numériques,internet,réseaux sociaux,site,application,objectifs marketing,vente,client" data-model="Le marketing digital est l’utilisation des technologies numériques comme Internet, les sites web, les applications et les réseaux sociaux pour atteindre des objectifs marketing.">
-            <p>9. Définissez le marketing digital.</p>
-            <textarea name="q9" placeholder="Écris ta réponse ici..."></textarea>
-            <div class="feedback"></div>
-          </div>
-
-          <div class="question open" data-points="1" data-keywords="accord,consentement,opt-in,email,sms,newsletter,permission" data-model="Le permission marketing est une communication faite avec l’accord du client, par exemple une newsletter reçue après inscription.">
-            <p>10. Que signifie permission marketing ?</p>
-            <textarea name="q10" placeholder="Écris ta réponse ici..."></textarea>
-            <div class="feedback"></div>
-          </div>
+        <div class="quiz-question">
+          <h4>2. À quoi sert un organigramme ?</h4>
+          <label><input type="radio" name="q2" value="1"> À montrer la structure et la hiérarchie de l’entreprise</label>
+          <label><input type="radio" name="q2" value="0"> À calculer le salaire uniquement</label>
+          <label><input type="radio" name="q2" value="0"> À remplacer le règlement intérieur</label>
         </div>
 
-        <div class="question-block">
-          <h3>III. Compréhension — 5 points</h3>
-
-          <div class="question open" data-points="2" data-keywords="sell,vendre,serve,servir,speak,dialoguer,save,économiser,sizzle,dynamiser,marque" data-model="Les 5S sont : Sell = vendre, Serve = servir le client, Speak = dialoguer avec les clients, Save = économiser les coûts, Sizzle = dynamiser la marque en ligne.">
-            <p>11. Expliquez les 5S du marketing digital selon Chaffey et Smith.</p>
-            <textarea name="q11" placeholder="Sell, Serve, Speak, Save, Sizzle..."></textarea>
-            <div class="feedback"></div>
-          </div>
-
-          <div class="question open" data-points="1.5" data-keywords="connecté,mobile,informé,exigeant,comparer,avis,social,interactif,personnalisé,ciblé" data-model="Le consommateur digital est connecté et mobile, informé et exigeant, social et interactif, et il attend des offres personnalisées.">
-            <p>12. Citez trois caractéristiques du consommateur digital.</p>
-            <textarea name="q12" placeholder="Exemple : connecté et mobile..."></textarea>
-            <div class="feedback"></div>
-          </div>
-
-          <div class="question open" data-points="1.5" data-keywords="seo,sea,sem,e-mailing,newsletter,réseaux sociaux,display,publicité,partenariat,affiliation" data-model="Les canaux digitaux peuvent être le SEM/SEO/SEA, l’e-mailing, les réseaux sociaux, la publicité display, les relations publiques digitales et les partenariats.">
-            <p>13. Présentez trois types de canaux digitaux.</p>
-            <textarea name="q13" placeholder="Exemple : SEO, e-mailing, réseaux sociaux..."></textarea>
-            <div class="feedback"></div>
-          </div>
+        <div class="quiz-question">
+          <h4>3. Les compétences individuelles concernent :</h4>
+          <label><input type="radio" name="q3" value="1"> Un employé précis</label>
+          <label><input type="radio" name="q3" value="0"> Toute l’économie du pays</label>
+          <label><input type="radio" name="q3" value="0"> Les bâtiments de l’entreprise</label>
         </div>
 
-        <div class="question-block">
-          <h3>IV. Étude de cas — 5 points</h3>
-          <p class="case-text">Une entreprise congolaise vend des vêtements en boutique physique à Kinshasa. Elle souhaite développer sa présence en ligne afin d’augmenter ses ventes et toucher une clientèle plus jeune.</p>
-
-          <div class="question open" data-points="1.25" data-keywords="instagram,facebook,tiktok,site web,boutique en ligne,publicité,campagne,réseaux sociaux,whatsapp" data-model="Elle peut créer des pages Instagram/Facebook/TikTok, créer une boutique en ligne et lancer des publicités ciblées.">
-            <p>14. Proposez trois actions digitales.</p>
-            <textarea name="q14" placeholder="Écris trois actions..."></textarea>
-            <div class="feedback"></div>
-          </div>
-
-          <div class="question open" data-points="1.25" data-keywords="trafic,visiteurs,taux de conversion,conversion,engagement,likes,commentaires,partages,abonnés,ventes" data-model="Les KPI peuvent être le trafic du site, le taux d’engagement, le taux de conversion, les ventes et le nombre d’abonnés.">
-            <p>15. Identifiez trois KPI.</p>
-            <textarea name="q15" placeholder="Exemple : trafic, engagement..."></textarea>
-            <div class="feedback"></div>
-          </div>
-
-          <div class="question open" data-points="1.25" data-keywords="visibilité,produits,jeunes,clients,communication,avis,partage,photos,vidéos,marque" data-model="Les réseaux sociaux permettent de montrer les produits, attirer les jeunes, communiquer avec les clients, recevoir des avis et augmenter la visibilité de la marque.">
-            <p>16. Expliquez comment les réseaux sociaux peuvent améliorer la visibilité.</p>
-            <textarea name="q16" placeholder="Explique le rôle des réseaux sociaux..."></textarea>
-            <div class="feedback"></div>
-          </div>
-
-          <div class="question open" data-points="1.25" data-keywords="influenceur,influenceuse,congolais,jeunes,vêtements,photos,vidéos,code promo,partenariat,tiktok,instagram" data-model="L’entreprise peut collaborer avec une influenceuse suivie par les jeunes, lui faire porter les vêtements, publier des photos/vidéos et utiliser un code promo.">
-            <p>17. Proposez une stratégie simple de marketing d’influence.</p>
-            <textarea name="q17" placeholder="Propose une stratégie..."></textarea>
-            <div class="feedback"></div>
-          </div>
+        <div class="quiz-question">
+          <h4>4. Le rôle de la formation est :</h4>
+          <label><input type="radio" name="q4" value="1"> D’améliorer les compétences et la performance</label>
+          <label><input type="radio" name="q4" value="0"> De supprimer les employés</label>
+          <label><input type="radio" name="q4" value="0"> De diminuer les connaissances</label>
         </div>
 
-        <div class="actions">
-          <button type="button" id="correctBtn">Corriger mon examen</button>
-          <button type="button" id="resetBtn" class="secondary">Recommencer</button>
+        <div class="quiz-question">
+          <h4>5. La rémunération comprend :</h4>
+          <label><input type="radio" name="q5" value="1"> Le salaire, les primes, les bonus et les avantages</label>
+          <label><input type="radio" name="q5" value="0"> Seulement les absences</label>
+          <label><input type="radio" name="q5" value="0"> Seulement les sanctions</label>
         </div>
+
+        <div class="quiz-question">
+          <h4>6. Le vandalisme signifie :</h4>
+          <label><input type="radio" name="q6" value="1"> Détruire ou abîmer volontairement un bien</label>
+          <label><input type="radio" name="q6" value="0"> Former les employés</label>
+          <label><input type="radio" name="q6" value="0"> Recruter un directeur</label>
+        </div>
+
+        <div class="quiz-question">
+          <h4>7. Le droit du travail encadre :</h4>
+          <label><input type="radio" name="q7" value="1"> Les relations entre employeurs et employés</label>
+          <label><input type="radio" name="q7" value="0"> Les loisirs uniquement</label>
+          <label><input type="radio" name="q7" value="0"> Les réseaux sociaux seulement</label>
+        </div>
+
+        <button type="button" onclick="calculateScore()">Corriger le quiz</button>
       </form>
 
-      <section id="resultBox" class="result-box hidden">
-        <h2>Résultat</h2>
-        <p id="scoreText"></p>
-        <p id="levelText"></p>
-      </section>
+      <div id="result"></div>
     </section>
-  </main>
+
+    <section id="correction" class="quiz-box">
+      <h2>Correction rapide à retenir</h2>
+
+      <div class="note">
+        <p><strong>1. Recrutement :</strong> besoin, profil, annonce, sélection, entretien, décision, embauche, accueil et intégration.</p>
+      </div>
+
+      <div class="note">
+        <p><strong>2. Organigramme :</strong> il montre la structure, la hiérarchie, les responsabilités et les relations entre services.</p>
+      </div>
+
+      <div class="note">
+        <p><strong>3. Compétences :</strong> individuelles, collectives et organisationnelles.</p>
+      </div>
+
+      <div class="note">
+        <p><strong>4. Formation :</strong> elle développe les compétences et améliore la performance des employés.</p>
+      </div>
+
+      <div class="note">
+        <p><strong>5. Salaire et rémunération :</strong> le salaire est une partie de la rémunération. La rémunération comprend aussi les primes, bonus et avantages.</p>
+      </div>
+
+      <div class="note">
+        <p><strong>6. Vandalisme :</strong> destruction ou dégradation volontaire d’un bien.</p>
+      </div>
+
+      <div class="note">
+        <p><strong>7. Droit du travail :</strong> règles qui organisent les relations professionnelles entre employeurs et employés.</p>
+      </div>
+    </section>
+
+  </div>
 
   <footer>
-    <p>© 2026 E-Revision — Site statique HTML avec CSS et JavaScript intégrés pour GitHub Pages.</p>
+    <p>© 2026 Study With Me - Révision GRH</p>
+    <p>Créé pour aider les étudiants à mieux préparer leurs examens.</p>
   </footer>
 
   <script>
-const correctBtn = document.getElementById('correctBtn');
-const resetBtn = document.getElementById('resetBtn');
-const resultBox = document.getElementById('resultBox');
-const scoreText = document.getElementById('scoreText');
-const levelText = document.getElementById('levelText');
+    function toggleAnswer(id) {
+      var answer = document.getElementById(id);
 
-function normalizeText(text) {
-  return text
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[’']/g, ' ')
-    .replace(/[^a-z0-9\s]/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
-}
-
-function keywordFound(answer, keyword) {
-  const cleanAnswer = normalizeText(answer);
-  const cleanKeyword = normalizeText(keyword);
-
-  if (!cleanKeyword) return false;
-
-  if (cleanAnswer.includes(cleanKeyword)) return true;
-
-  // Correction approximative simple : accepte quelques mots proches.
-  const synonyms = {
-    'numeriques': ['technologique', 'technologies', 'digital', 'digitale'],
-    'internet': ['web', 'en ligne', 'online'],
-    'reseaux sociaux': ['facebook', 'instagram', 'tiktok', 'social'],
-    'vendre': ['vente', 'ventes', 'commercialiser', 'acheter'],
-    'client': ['clients', 'consommateur', 'consommateurs'],
-    'manque': ['besoin', 'absence'],
-    'pouvoir': ['capacite', 'moyen'],
-    'achat': ['acheter', 'payer'],
-    'accord': ['consentement', 'accepter', 'autorisation'],
-    'dialoguer': ['parler', 'echanger', 'communiquer'],
-    'economiser': ['reduire', 'cout', 'couts', 'moins cher'],
-    'dynamiser': ['ameliorer', 'renforcer', 'image', 'marque'],
-    'engagement': ['likes', 'commentaires', 'partages', 'interaction']
-  };
-
-  if (synonyms[cleanKeyword]) {
-    return synonyms[cleanKeyword].some(word => cleanAnswer.includes(normalizeText(word)));
-  }
-
-  return false;
-}
-
-function correctQCM(question) {
-  const points = parseFloat(question.dataset.points);
-  const answer = question.dataset.answer;
-  const selected = question.querySelector('input[type="radio"]:checked');
-  const feedback = question.querySelector('.feedback');
-
-  if (!selected) {
-    feedback.className = 'feedback bad';
-    feedback.innerHTML = '❌ Aucune réponse choisie. Point obtenu : 0.';
-    return 0;
-  }
-
-  if (selected.value === answer) {
-    feedback.className = 'feedback good';
-    feedback.innerHTML = `✅ Bonne réponse. Point obtenu : ${points}.`;
-    return points;
-  }
-
-  feedback.className = 'feedback bad';
-  feedback.innerHTML = `❌ Mauvaise réponse. Bonne réponse : ${answer.toUpperCase()}. Point obtenu : 0.`;
-  return 0;
-}
-
-function correctOpen(question) {
-  const points = parseFloat(question.dataset.points);
-  const keywords = question.dataset.keywords.split(',');
-  const model = question.dataset.model;
-  const textarea = question.querySelector('textarea');
-  const feedback = question.querySelector('.feedback');
-  const answer = textarea.value.trim();
-
-  if (answer.length < 3) {
-    feedback.className = 'feedback bad';
-    feedback.innerHTML = `❌ Réponse vide ou trop courte. Point obtenu : 0.<br><strong>Correction :</strong> ${model}`;
-    return 0;
-  }
-
-  let found = 0;
-  let foundWords = [];
-
-  keywords.forEach(keyword => {
-    if (keywordFound(answer, keyword)) {
-      found++;
-      foundWords.push(keyword.trim());
+      if (answer.style.display === "block") {
+        answer.style.display = "none";
+      } else {
+        answer.style.display = "block";
+      }
     }
-  });
 
-  const ratio = found / keywords.length;
-  let obtained = 0;
+    function calculateScore() {
+      var form = document.getElementById("quizForm");
+      var result = document.getElementById("result");
+      var score = 0;
+      var total = 7;
 
-  if (ratio >= 0.65) {
-    obtained = points;
-  } else if (ratio >= 0.35) {
-    obtained = points * 0.6;
-  } else if (ratio >= 0.15) {
-    obtained = points * 0.3;
-  } else {
-    obtained = 0;
-  }
+      for (var i = 1; i <= total; i++) {
+        var question = form["q" + i];
 
-  obtained = Math.round(obtained * 100) / 100;
+        for (var j = 0; j < question.length; j++) {
+          if (question[j].checked) {
+            score += parseInt(question[j].value);
+          }
+        }
+      }
 
-  if (obtained === points) {
-    feedback.className = 'feedback good';
-    feedback.innerHTML = `✅ Réponse acceptée. Points obtenus : ${obtained}/${points}.<br><strong>Mots reconnus :</strong> ${foundWords.join(', ')}<br><strong>Correction modèle :</strong> ${model}`;
-  } else if (obtained > 0) {
-    feedback.className = 'feedback medium';
-    feedback.innerHTML = `⚠️ Réponse partiellement correcte. Points obtenus : ${obtained}/${points}.<br><strong>Mots reconnus :</strong> ${foundWords.join(', ') || 'peu de mots'}<br><strong>Correction modèle :</strong> ${model}`;
-  } else {
-    feedback.className = 'feedback bad';
-    feedback.innerHTML = `❌ Réponse insuffisante. Points obtenus : 0/${points}.<br><strong>Correction modèle :</strong> ${model}`;
-  }
+      var message = "";
 
-  return obtained;
-}
+      if (score === 7) {
+        message = "Excellent ! Tu as obtenu " + score + "/" + total + ".";
+      } else if (score >= 5) {
+        message = "Bien ! Tu as obtenu " + score + "/" + total + ". Continue comme ça.";
+      } else if (score >= 3) {
+        message = "Moyen. Tu as obtenu " + score + "/" + total + ". Relis encore les réponses.";
+      } else {
+        message = "Tu as obtenu " + score + "/" + total + ". Il faut encore réviser.";
+      }
 
-correctBtn.addEventListener('click', () => {
-  let total = 0;
-
-  document.querySelectorAll('.question').forEach(question => {
-    if (question.classList.contains('qcm')) {
-      total += correctQCM(question);
-    } else if (question.classList.contains('open')) {
-      total += correctOpen(question);
+      result.innerHTML = message;
     }
-  });
-
-  total = Math.round(total * 100) / 100;
-  resultBox.classList.remove('hidden');
-  scoreText.textContent = `Votre cote : ${total} / 20`;
-
-  if (total >= 16) {
-    levelText.textContent = 'Excellent travail. Tu maîtrises très bien le cours.';
-  } else if (total >= 12) {
-    levelText.textContent = 'Bon résultat. Il faut encore revoir quelques notions.';
-  } else if (total >= 10) {
-    levelText.textContent = 'Moyen. Tu as les bases, mais tu dois encore réviser.';
-  } else {
-    levelText.textContent = 'Insuffisant. Revois surtout les définitions, les 5S, les KPI et les canaux digitaux.';
-  }
-
-  resultBox.scrollIntoView({ behavior: 'smooth' });
-});
-
-resetBtn.addEventListener('click', () => {
-  document.getElementById('quizForm').reset();
-  document.querySelectorAll('.feedback').forEach(feedback => {
-    feedback.className = 'feedback';
-    feedback.innerHTML = '';
-  });
-  resultBox.classList.add('hidden');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-
   </script>
+
 </body>
 </html>
