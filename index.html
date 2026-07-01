@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Study With Me - Révision GRH</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Study With Me - Gestion des Ressources Humaines</title>
 
   <style>
     * {
@@ -16,14 +16,14 @@
     body {
       background: #f7f3ff;
       color: #222;
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
     header {
-      background: linear-gradient(135deg, #6d28d9, #a855f7);
+      background: linear-gradient(135deg, #5b21b6, #a855f7);
       color: white;
+      padding: 45px 20px;
       text-align: center;
-      padding: 40px 20px;
     }
 
     header h1 {
@@ -39,156 +39,195 @@
       background: white;
       padding: 15px;
       text-align: center;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.12);
     }
 
     nav a {
       text-decoration: none;
-      color: #6d28d9;
+      color: #5b21b6;
       font-weight: bold;
-      margin: 0 12px;
+      margin: 0 10px;
+      font-size: 14px;
     }
 
     nav a:hover {
-      color: #4c1d95;
+      color: #a855f7;
     }
 
     .container {
-      max-width: 1000px;
-      margin: 30px auto;
-      padding: 20px;
+      max-width: 1100px;
+      margin: auto;
+      padding: 25px;
     }
 
     .intro {
       background: white;
       padding: 25px;
-      border-radius: 14px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+      border-radius: 15px;
       margin-bottom: 30px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
       text-align: center;
     }
 
     .intro h2 {
-      color: #6d28d9;
+      color: #5b21b6;
       margin-bottom: 10px;
     }
 
     .chapter {
-      margin-bottom: 35px;
+      background: white;
+      margin-bottom: 30px;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
     }
 
-    .chapter-title {
-      background: #6d28d9;
+    .chapter h2 {
+      background: #5b21b6;
       color: white;
       padding: 15px;
       border-radius: 10px;
-      margin-bottom: 18px;
-      font-size: 22px;
+      margin-bottom: 20px;
     }
 
-    .question-card {
-      background: white;
-      border-left: 6px solid #8b5cf6;
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 18px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-    }
-
-    .question-card h3 {
-      color: #4c1d95;
+    .chapter h3 {
+      color: #7c3aed;
+      margin-top: 22px;
       margin-bottom: 10px;
     }
 
-    .question-card p {
-      margin-bottom: 12px;
+    .chapter p {
+      margin-bottom: 10px;
+    }
+
+    ul, ol {
+      margin-left: 25px;
+      margin-bottom: 15px;
+    }
+
+    li {
+      margin-bottom: 7px;
+    }
+
+    .important {
+      background: #f4edff;
+      border-left: 6px solid #8b5cf6;
+      padding: 15px;
+      margin: 18px 0;
+      border-radius: 10px;
+    }
+
+    .important strong {
+      color: #5b21b6;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 18px 0;
+      background: white;
+    }
+
+    th {
+      background: #ddd1ff;
+      color: #222;
+      padding: 12px;
+      border: 1px solid #c4b5fd;
+    }
+
+    td {
+      padding: 12px;
+      border: 1px solid #ddd;
+      vertical-align: top;
+    }
+
+    .question-card {
+      background: #ffffff;
+      border-left: 6px solid #8b5cf6;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 18px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+    }
+
+    .question-card h3 {
+      color: #5b21b6;
+      margin-bottom: 10px;
     }
 
     button {
-      background: #8b5cf6;
+      background: #7c3aed;
       color: white;
       border: none;
-      padding: 10px 15px;
+      padding: 10px 16px;
       border-radius: 8px;
       cursor: pointer;
       font-weight: bold;
-      margin-top: 8px;
+      margin-top: 10px;
     }
 
     button:hover {
-      background: #6d28d9;
+      background: #5b21b6;
     }
 
     .answer {
       display: none;
       margin-top: 15px;
-      background: #f1e9ff;
-      border-radius: 10px;
+      background: #f4edff;
       padding: 15px;
-      border: 1px solid #d8c7ff;
-    }
-
-    .answer strong {
-      color: #4c1d95;
+      border-radius: 10px;
+      border: 1px solid #c4b5fd;
     }
 
     .quiz-box {
       background: white;
       padding: 25px;
-      border-radius: 14px;
+      border-radius: 15px;
+      margin-bottom: 30px;
       box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-      margin-top: 30px;
     }
 
     .quiz-box h2 {
-      color: #6d28d9;
-      margin-bottom: 15px;
+      color: #5b21b6;
       text-align: center;
+      margin-bottom: 20px;
     }
 
     .quiz-question {
-      margin-bottom: 20px;
-      padding: 15px;
       background: #faf7ff;
+      padding: 15px;
       border-radius: 10px;
+      margin-bottom: 18px;
     }
 
     .quiz-question h4 {
+      color: #5b21b6;
       margin-bottom: 10px;
-      color: #4c1d95;
     }
 
     .quiz-question label {
       display: block;
-      margin: 8px 0;
+      margin: 7px 0;
       cursor: pointer;
     }
 
     #result {
-      margin-top: 20px;
-      font-size: 20px;
-      font-weight: bold;
       text-align: center;
-      color: #4c1d95;
+      font-size: 22px;
+      color: #5b21b6;
+      font-weight: bold;
+      margin-top: 20px;
     }
 
     footer {
-      background: #4c1d95;
+      background: #3b0764;
       color: white;
       text-align: center;
       padding: 25px;
-      margin-top: 40px;
-    }
-
-    .note {
-      background: #fff7d6;
-      border-left: 5px solid #facc15;
-      padding: 15px;
-      border-radius: 8px;
-      margin: 20px 0;
+      margin-top: 35px;
     }
 
     @media screen and (max-width: 768px) {
@@ -198,15 +237,28 @@
 
       nav a {
         display: block;
-        margin: 8px 0;
+        margin: 7px 0;
       }
 
       .container {
         padding: 12px;
       }
 
-      .chapter-title {
-        font-size: 19px;
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      th {
+        display: none;
+      }
+
+      td {
+        border: 1px solid #ddd;
+      }
+
+      td::before {
+        font-weight: bold;
+        color: #5b21b6;
       }
     }
   </style>
@@ -216,265 +268,1021 @@
 
   <header>
     <h1>Study With Me</h1>
-    <p>Site de révision pour les étudiants - Gestion des Ressources Humaines</p>
+    <p>Révision complète - Gestion des Ressources Humaines</p>
   </header>
 
   <nav>
+    <a href="#chap1">Chap. 1</a>
+    <a href="#chap2">Chap. 2</a>
+    <a href="#chap3">Chap. 3</a>
+    <a href="#chap4">Chap. 4</a>
+    <a href="#chap5">Chap. 5</a>
+    <a href="#chap6">Chap. 6</a>
+    <a href="#chap7">Chap. 7</a>
     <a href="#questions">Questions</a>
     <a href="#quiz">Quiz</a>
-    <a href="#correction">Correction</a>
   </nav>
 
   <div class="container">
 
     <section class="intro">
-      <h2>Révision GRH</h2>
+      <h2>Bienvenue sur la plateforme de révision GRH</h2>
       <p>
-        Cette page aide les étudiants à réviser les questions importantes du cours de 
-        Gestion des Ressources Humaines. Lisez d’abord la question, essayez de répondre,
-        puis cliquez sur le bouton pour voir la réponse.
+        Ce site aide les étudiants à réviser le cours de Gestion des Ressources Humaines.
+        Il contient les résumés du cours, les tableaux importants, les questions-réponses
+        et un quiz automatique.
       </p>
     </section>
 
-    <section id="questions">
+    <section id="chap1" class="chapter">
+      <h2>Chapitre 1 : Définition des concepts de base et évolution de la GRH</h2>
 
-      <div class="chapter">
-        <h2 class="chapter-title">Questions de révision avec réponses</h2>
+      <h3>1. Définition de la GRH</h3>
+      <p>
+        La Gestion des Ressources Humaines, appelée GRH, est l’ensemble des opérations
+        visant à constituer et développer un potentiel humain capable de s’adapter aux
+        changements de l’environnement.
+      </p>
+      <p>
+        Elle gère les compétences, le suivi et le perfectionnement des employés pour
+        maintenir un rendement élevé, tout en assurant leurs conditions psychologiques
+        et sociales afin d’atteindre les objectifs de l’organisation.
+      </p>
 
-        <div class="question-card">
-          <h3>1. Les étapes du recrutement</h3>
-          <p>
-            Vous êtes chef d’entreprise et vous décidez de procéder au recrutement d’un directeur
-            en charge des services informatiques au sein de votre entreprise. Énumérez les différentes
-            étapes de recrutement que vous allez utiliser pour ce poste.
-          </p>
+      <div class="important">
+        <strong>À retenir :</strong> La GRH place l’humain au centre de la gestion,
+        de la production et de la performance d’une organisation.
+      </div>
 
-          <button onclick="toggleAnswer('answer1')">Voir la réponse</button>
+      <p>
+        La GRH est à la fois une discipline scientifique et une pratique managériale.
+        Comme discipline scientifique, elle crée des théories, des méthodes et des analyses.
+        Comme pratique managériale, elle concerne la gestion quotidienne des employés.
+      </p>
 
-          <div class="answer" id="answer1">
-            <p><strong>Réponse :</strong></p>
-            <p>
-              Pour recruter un directeur chargé des services informatiques, il faut suivre plusieurs étapes :
-            </p>
-            <ol>
-              <li><strong>Identification du besoin :</strong> déterminer pourquoi l’entreprise a besoin d’un directeur informatique.</li>
-              <li><strong>Définition du profil recherché :</strong> préciser les compétences, diplômes, expériences et qualités nécessaires.</li>
-              <li><strong>Publication de l’offre :</strong> diffuser l’annonce en interne et en externe.</li>
-              <li><strong>Réception et sélection des candidatures :</strong> analyser les CV et lettres de motivation.</li>
-              <li><strong>Entretiens de sélection :</strong> rencontrer les candidats retenus pour vérifier leurs compétences et motivations.</li>
-              <li><strong>Tests éventuels :</strong> tester les connaissances techniques, la gestion d’équipe et la capacité de décision.</li>
-              <li><strong>Choix du candidat :</strong> retenir le candidat le plus compétent et le plus adapté au poste.</li>
-              <li><strong>Décision d’embauche :</strong> préparer le contrat et officialiser l’engagement.</li>
-              <li><strong>Accueil et intégration :</strong> présenter l’entreprise, l’équipe, les outils et les missions au nouveau directeur.</li>
-            </ol>
-          </div>
+      <h3>2. Missions principales de la GRH</h3>
+      <table>
+        <tr>
+          <th>Missions de la GRH</th>
+          <th>Objectifs clés</th>
+        </tr>
+        <tr>
+          <td>Promouvoir une meilleure allocation des ressources</td>
+          <td>Assurer la compétence et l’adéquation des effectifs</td>
+        </tr>
+        <tr>
+          <td>Mobiliser les potentiels humains</td>
+          <td>Transformer chaque salarié en source de création de valeur</td>
+        </tr>
+        <tr>
+          <td>Considérer les facteurs humains comme un actif</td>
+          <td>Différencier l’organisation de la concurrence</td>
+        </tr>
+        <tr>
+          <td>Maintenir les ressources humaines : effectifs, qualification, motivation</td>
+          <td>Fidéliser et retenir les talents par des conditions attractives</td>
+        </tr>
+      </table>
+
+      <h3>3. Importance de la GRH</h3>
+      <ul>
+        <li>Le facteur humain est central dans l’entreprise.</li>
+        <li>Sans une bonne gestion des employés, le capital financier ne suffit pas à assurer la performance.</li>
+        <li>Une mauvaise gestion du personnel peut nuire à la productivité.</li>
+        <li>Une bonne GRH permet d’utiliser efficacement les compétences humaines.</li>
+      </ul>
+
+      <h3>4. Évolution historique de la GRH</h3>
+      <p>
+        La GRH a connu une évolution rapide dans les sciences humaines et sociales.
+        Son développement est lié à la révolution industrielle du 19e siècle.
+      </p>
+      <p>
+        Avec l’augmentation de la taille des entreprises, il est devenu nécessaire
+        d’avoir une gestion spécialisée du personnel.
+      </p>
+      <p>
+        La GRH est passée d’une simple fonction administrative à une discipline scientifique
+        intégrant des connaissances juridiques, psychologiques, sociologiques, économiques
+        et comptables.
+      </p>
+
+      <h3>5. Les grandes écoles théoriques de la GRH</h3>
+      <table>
+        <tr>
+          <th>École</th>
+          <th>Principes clés</th>
+          <th>Contribution à la GRH</th>
+        </tr>
+        <tr>
+          <td>École classique</td>
+          <td>Organisation scientifique du travail, hiérarchie stricte, division des tâches</td>
+          <td>Optimisation de la productivité par la structure et la discipline</td>
+        </tr>
+        <tr>
+          <td>École des relations humaines</td>
+          <td>Importance des facteurs sociaux et psychologiques dans le travail</td>
+          <td>Reconnaissance du rôle des besoins humains et de la motivation</td>
+        </tr>
+        <tr>
+          <td>École moderne</td>
+          <td>Intégration des approches classiques et humaines, prise en compte de l’environnement et des stratégies</td>
+          <td>Approche globale et stratégique de la gestion des ressources humaines</td>
+        </tr>
+      </table>
+
+      <h3>6. Objectifs du cours de GRH</h3>
+      <ul>
+        <li>Comprendre l’importance et les objectifs de la GRH dans l’entreprise.</li>
+        <li>Identifier les activités clés et les processus décisionnels en GRH.</li>
+        <li>Diagnostiquer et résoudre les problèmes liés aux salariés et à la performance.</li>
+        <li>Évaluer l’impact de l’environnement externe sur la gestion des ressources humaines.</li>
+      </ul>
+
+      <div class="important">
+        <strong>Synthèse :</strong> La GRH est une fonction stratégique qui vise à
+        mobiliser et développer les ressources humaines pour assurer la performance durable
+        de l’organisation.
+      </div>
+    </section>
+
+    <section id="chap2" class="chapter">
+      <h2>Chapitre 2 : Les grandes étapes de l’évolution de la GRH</h2>
+
+      <h3>1. Le Taylorisme</h3>
+      <p>
+        Frederick Taylor est considéré comme le père de l’Organisation Scientifique du Travail,
+        appelée OST ou Taylorisme.
+      </p>
+      <p>
+        L’objectif du Taylorisme est de professionnaliser la gestion des ressources humaines
+        en retirant l’organisation du travail des ateliers pour la confier à la direction.
+      </p>
+      <p>
+        Le principe clé est la division du travail en tâches élémentaires. Chaque ouvrier
+        réalise une étape précise, ce qui permet de mieux contrôler la production.
+      </p>
+
+      <ul>
+        <li>Exemple : dans un atelier de fabrication de bancs, chaque employé fait une étape différente.</li>
+        <li>Impact : augmentation de la productivité.</li>
+        <li>Impact : standardisation des tâches.</li>
+        <li>Impact : montée en compétence et professionnalisation du management.</li>
+      </ul>
+
+      <h3>2. L’école des relations humaines</h3>
+      <p>
+        Cette école est fondée sur les travaux d’Elton Mayo aux États-Unis.
+      </p>
+      <p>
+        L’idée centrale est que le facteur social et psychologique influence plus la productivité
+        que les règles formelles ou la hiérarchie.
+      </p>
+      <ul>
+        <li>L’entreprise est un système social autant que technico-économique.</li>
+        <li>Le travailleur est un être complexe.</li>
+        <li>Il est motivé par des besoins psychologiques comme la reconnaissance et l’appartenance.</li>
+        <li>Des relations humaines de qualité améliorent la performance.</li>
+      </ul>
+
+      <p>
+        Les principaux auteurs sont Elton Mayo, Kurt Lewin, Abraham Maslow et Jacob Moreno.
+      </p>
+
+      <h3>3. Théories X et Y de Douglas MacGregor</h3>
+      <table>
+        <tr>
+          <th>Théorie X traditionnelle</th>
+          <th>Théorie Y moderne</th>
+        </tr>
+        <tr>
+          <td>L’individu n’aime pas le travail.</td>
+          <td>L’individu aime le travail.</td>
+        </tr>
+        <tr>
+          <td>Il est peu ambitieux et résiste aux responsabilités.</td>
+          <td>Il est ambitieux, créatif et capable d’autocontrôle.</td>
+        </tr>
+        <tr>
+          <td>Il nécessite un contrôle strict.</td>
+          <td>Il peut s’autogérer si la confiance est donnée.</td>
+        </tr>
+        <tr>
+          <td>Management basé sur la surveillance et la contrainte.</td>
+          <td>Management basé sur la participation et la confiance.</td>
+        </tr>
+      </table>
+
+      <p>
+        La théorie Y encourage la responsabilisation et la participation des employés.
+      </p>
+
+      <h3>4. La théorie des besoins d’Abraham Maslow</h3>
+      <table>
+        <tr>
+          <th>Niveau</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>Besoins physiologiques</td>
+          <td>Nourriture, repos, santé</td>
+        </tr>
+        <tr>
+          <td>Besoins de sécurité</td>
+          <td>Sécurité financière, emploi stable</td>
+        </tr>
+        <tr>
+          <td>Besoins d’appartenance</td>
+          <td>Intégration sociale, sentiment d’appartenance</td>
+        </tr>
+        <tr>
+          <td>Besoins d’estime</td>
+          <td>Reconnaissance, respect, confiance</td>
+        </tr>
+        <tr>
+          <td>Besoins d’accomplissement</td>
+          <td>Réalisation de soi, épanouissement personnel</td>
+        </tr>
+      </table>
+
+      <p>
+        La satisfaction de ces besoins influence la motivation et l’engagement au travail.
+      </p>
+
+      <h3>5. Évolution du poste de chef de personnel</h3>
+      <ul>
+        <li>Au 19e siècle, le poste apparaît avec le machinisme et l’OST.</li>
+        <li>Au départ, son rôle est le contrôle strict de la main-d’œuvre.</li>
+        <li>Entre 1944 et 1990, il s’occupe du recrutement, de l’affectation, de la notation, de la paie et des négociations syndicales.</li>
+        <li>Depuis 1990, la fonction devient plus stratégique.</li>
+      </ul>
+
+      <div class="important">
+        <strong>À retenir :</strong> La GRH a évolué d’une gestion mécaniste et contrôlée
+        vers une approche centrée sur l’humain, la motivation et la participation.
+      </div>
+    </section>
+
+    <section id="chap3" class="chapter">
+      <h2>Chapitre 3 : Le recrutement et l’intégration du personnel</h2>
+
+      <h3>1. Introduction</h3>
+      <p>
+        Le recrutement est un enjeu majeur pour les entreprises. Il permet d’attirer
+        et de retenir les talents.
+      </p>
+      <p>
+        Le recrutement est la première étape clé de la GRH. Il influence l’intégration,
+        la rémunération, la formation et l’évaluation des salariés.
+      </p>
+
+      <h3>2. Rôle du recrutement dans l’organisation</h3>
+      <ul>
+        <li>Le recrutement est un outil de sélection.</li>
+        <li>Il est aussi un facteur essentiel d’intégration des salariés.</li>
+        <li>Un recrutement réussi permet de fidéliser les collaborateurs.</li>
+        <li>Un mauvais recrutement peut impacter négativement la productivité et la performance.</li>
+      </ul>
+
+      <div class="important">
+        <strong>À retenir :</strong> Le recrutement est un levier stratégique qui conditionne
+        la performance globale de l’entreprise.
+      </div>
+
+      <h3>3. Conditions de réussite du recrutement</h3>
+      <ul>
+        <li>Le recrutement doit être impartial.</li>
+        <li>Il doit être objectif.</li>
+        <li>Il doit être basé sur des critères impersonnels.</li>
+        <li>Il doit répondre aux besoins réels de l’entreprise.</li>
+      </ul>
+
+      <h3>4. Les phases du recrutement</h3>
+      <table>
+        <tr>
+          <th>Phase</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>1. Identification des besoins</td>
+          <td>Détection des besoins en personnel par les responsables hiérarchiques.</td>
+        </tr>
+        <tr>
+          <td>2. Lancement des appels d’offres</td>
+          <td>Publication des offres d’emploi en interne puis en externe.</td>
+        </tr>
+        <tr>
+          <td>3. Sélection des candidatures</td>
+          <td>Tri des dossiers selon les critères définis.</td>
+        </tr>
+        <tr>
+          <td>4. Entretiens de sélection</td>
+          <td>Évaluation des candidats par des entretiens.</td>
+        </tr>
+        <tr>
+          <td>5. Décision d’embauche</td>
+          <td>Choix final du candidat retenu.</td>
+        </tr>
+        <tr>
+          <td>6. Accueil des nouveaux employés</td>
+          <td>Première prise de contact avec l’entreprise.</td>
+        </tr>
+        <tr>
+          <td>7. Intégration</td>
+          <td>Intégration dans l’équipe et adaptation au poste.</td>
+        </tr>
+      </table>
+
+      <h3>5. Identification des besoins en personnel</h3>
+      <p>
+        Le besoin émane des responsables hiérarchiques en cas de mutation, décès, retraite
+        ou évolution des activités.
+      </p>
+      <p>
+        Le besoin doit correspondre à une adéquation quantitative et qualitative.
+      </p>
+      <ul>
+        <li>L’adéquation quantitative concerne le nombre de postes.</li>
+        <li>L’adéquation qualitative concerne les compétences nécessaires.</li>
+        <li>L’adaptation quantitative répond aux fluctuations de l’activité.</li>
+        <li>L’adaptation qualitative anticipe les évolutions technologiques et organisationnelles.</li>
+      </ul>
+
+      <div class="important">
+        <strong>À retenir :</strong> Le recrutement doit toujours partir d’un besoin interne
+        clairement identifié et justifié.
+      </div>
+
+      <h3>6. Synthèse du recrutement</h3>
+      <table>
+        <tr>
+          <th>Aspect</th>
+          <th>Importance clé</th>
+        </tr>
+        <tr>
+          <td>Recrutement</td>
+          <td>Premier élément stratégique de la GRH.</td>
+        </tr>
+        <tr>
+          <td>Objectivité</td>
+          <td>Critère fondamental pour éviter les échecs et garantir la compétitivité.</td>
+        </tr>
+        <tr>
+          <td>Phases</td>
+          <td>Chaque étape est importante, de l’identification des besoins à l’intégration.</td>
+        </tr>
+        <tr>
+          <td>Besoins en personnel</td>
+          <td>Ils doivent être précis, adaptés et anticiper les évolutions futures.</td>
+        </tr>
+      </table>
+    </section>
+
+    <section id="chap4" class="chapter">
+      <h2>Chapitre 4 : Formation et évaluation du personnel</h2>
+
+      <h3>1. Formation du personnel</h3>
+      <p>
+        La formation est essentielle pour intégrer les nouveaux employés et améliorer
+        la productivité.
+      </p>
+      <p>
+        Elle permet aux salariés de maîtriser leur métier, les règles internes et les objectifs
+        de l’entreprise.
+      </p>
+
+      <h3>Objectifs de la formation</h3>
+      <ul>
+        <li>Accroître la performance des employés.</li>
+        <li>Développer les compétences.</li>
+        <li>Augmenter l’efficacité professionnelle.</li>
+        <li>Adapter les employés aux nouvelles technologies.</li>
+        <li>Adapter les employés aux nouvelles méthodes de travail.</li>
+        <li>Favoriser la fidélisation des employés.</li>
+        <li>Fournir les outils techniques nécessaires à la réussite des tâches.</li>
+      </ul>
+
+      <h3>Plan de formation</h3>
+      <p>
+        Le plan de formation est l’ensemble des actions de formation prévues sur une période,
+        souvent annuelle.
+      </p>
+      <ol>
+        <li>Définir la stratégie de l’entreprise.</li>
+        <li>Recenser les besoins en formation.</li>
+        <li>Établir les plans d’action.</li>
+      </ol>
+
+      <h3>2. Anticipation des besoins en personnel</h3>
+      <p>
+        L’entreprise doit anticiper ses besoins en main-d’œuvre pour éviter les pénuries
+        ou les surplus.
+      </p>
+      <p>
+        Elle doit tenir compte de la quantité, c’est-à-dire les effectifs, et de la qualité,
+        c’est-à-dire les compétences.
+      </p>
+      <p>
+        Exemple : préparer le remplacement d’un chef comptable qui part à la retraite.
+      </p>
+
+      <h3>3. Recrutement</h3>
+      <p>
+        L’annonce de recrutement doit être transparente et équitable.
+        Elle peut être diffusée en interne par affichage et en externe par la presse,
+        internet ou des agences spécialisées.
+      </p>
+
+      <h3>Contenu d’une annonce</h3>
+      <ul>
+        <li>Profil et qualifications du candidat.</li>
+        <li>Responsabilités du poste.</li>
+        <li>Caractéristiques du poste.</li>
+        <li>Durée du poste.</li>
+        <li>Maîtrise des langues.</li>
+      </ul>
+
+      <h3>Entretien d’embauche</h3>
+      <p>
+        L’entretien permet de vérifier la formation, l’expérience, la motivation,
+        la disponibilité et les références du candidat.
+      </p>
+
+      <div class="important">
+        <strong>Important :</strong> Il faut éviter les questions personnelles comme l’état civil
+        ou la famille.
+      </div>
+
+      <h3>4. Accueil et intégration</h3>
+      <p>
+        Un bon accueil facilite l’intégration et la stabilisation des nouveaux employés.
+        Un accueil négligé peut freiner leur progression et leur sentiment d’appartenance.
+      </p>
+
+      <h3>5. Gestion prévisionnelle des emplois et compétences</h3>
+      <p>
+        La GPEC vise à réduire les écarts entre les besoins et les ressources en effectifs
+        et en compétences de manière anticipée.
+      </p>
+
+      <table>
+        <tr>
+          <th>Dimension</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>Collective</td>
+          <td>Gestion des compétences globales d’un groupe ou d’une entreprise.</td>
+        </tr>
+        <tr>
+          <td>Individuelle</td>
+          <td>Gestion du parcours professionnel et développement des compétences de chaque employé.</td>
+        </tr>
+      </table>
+
+      <p>
+        La GPEC est une démarche stratégique qui permet d’adapter les ressources humaines
+        aux évolutions technologiques et organisationnelles.
+      </p>
+
+      <h3>6. Notion de compétences</h3>
+      <p>
+        La compétence professionnelle est l’ensemble de savoirs, savoir-faire et savoir-être
+        caractérisant un salarié.
+      </p>
+
+      <ul>
+        <li><strong>Compétences individuelles :</strong> liées à un employé précis.</li>
+        <li><strong>Compétences collectives :</strong> liées à un groupe d’employés.</li>
+        <li><strong>Compétences organisationnelles :</strong> compétences globales d’une entreprise.</li>
+      </ul>
+
+      <div class="important">
+        <strong>À retenir :</strong> La formation et l’évaluation du personnel sont des leviers
+        essentiels pour garantir la performance individuelle et collective.
+      </div>
+    </section>
+
+    <section id="chap5" class="chapter">
+      <h2>Chapitre 5 : Rémunération et système de compensation</h2>
+
+      <h3>1. Contraintes et objectifs d’une politique de rémunération</h3>
+      <p>
+        La politique de rémunération doit optimiser la performance de l’entreprise tout
+        en respectant les contraintes institutionnelles et économiques.
+      </p>
+      <p>
+        Elle vise à concilier efficacité économique et motivation des employés.
+      </p>
+
+      <h3>2. Variables influençant le système de rémunération</h3>
+      <ul>
+        <li><strong>Macro-économiques :</strong> taux d’inflation, dépréciation monétaire, coût de la vie.</li>
+        <li><strong>Individuelles :</strong> performance, âge, ancienneté, situation familiale.</li>
+        <li><strong>Localisation :</strong> lieu d’implantation de l’entreprise.</li>
+      </ul>
+
+      <h3>3. Caractéristiques principales d’une rémunération</h3>
+      <ul>
+        <li><strong>Impartialité :</strong> basée sur des critères objectifs et non discriminatoires.</li>
+        <li><strong>Légalité :</strong> respect des normes et lois en vigueur.</li>
+        <li><strong>Adaptation aux besoins du travailleur :</strong> prise en compte du coût de la vie.</li>
+        <li><strong>Contribution à la performance :</strong> la rémunération motive et améliore la productivité.</li>
+      </ul>
+
+      <div class="important">
+        Sans rémunération, il n’y a pas de travail, et sans travail, il ne devrait pas y avoir
+        de rémunération.
+      </div>
+
+      <h3>4. Composantes de la rémunération directe</h3>
+      <table>
+        <tr>
+          <th>Élément</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>Salaire de qualification</td>
+          <td>Basé sur le diplôme ou la formation de l’employé.</td>
+        </tr>
+        <tr>
+          <td>Salaire de performance ou bonus</td>
+          <td>Versé suite à une évaluation individuelle ou collective de la performance.</td>
+        </tr>
+        <tr>
+          <td>Primes diverses</td>
+          <td>Variables, liées à la fonction, à l’équipe ou à des critères spécifiques comme l’ancienneté.</td>
+        </tr>
+      </table>
+
+      <h3>5. Évaluation du personnel</h3>
+      <ul>
+        <li><strong>Objectif :</strong> mesurer la contribution d’un employé à la productivité et aux objectifs de l’entreprise.</li>
+        <li><strong>Critères :</strong> objectivité, honnêteté et justesse.</li>
+        <li><strong>Processus :</strong> évaluation impartiale basée sur une grille personnalisée.</li>
+        <li><strong>Conséquence positive :</strong> promotion.</li>
+        <li><strong>Conséquence négative :</strong> sanction.</li>
+        <li><strong>Droit de l’employé :</strong> accepter ou refuser les résultats si l’évaluation est injuste.</li>
+      </ul>
+
+      <h3>6. Règles pour éviter la subjectivité dans l’évaluation</h3>
+      <ul>
+        <li>Respect strict des critères établis par l’entreprise.</li>
+        <li>Déterminer le but de l’évaluation.</li>
+        <li>Déterminer ce qu’il faut évaluer.</li>
+        <li>Déterminer qui participe à l’évaluation.</li>
+        <li>Déterminer comment évaluer.</li>
+        <li>Déterminer sur quelle base évaluer.</li>
+      </ul>
+
+      <h3>7. Problèmes et discriminations liés à la rémunération</h3>
+      <ul>
+        <li>Faux documents pour justifier des avantages familiaux.</li>
+        <li>Discrimination des personnes handicapées.</li>
+        <li>Inégalités salariales entre hommes et femmes malgré des qualifications égales.</li>
+        <li>Pratiques illégales et corruption dans certains secteurs.</li>
+      </ul>
+
+      <h3>8. Importance de la rémunération</h3>
+      <p>
+        La rémunération est le moteur fondamental du travail. Elle doit être juste,
+        motivante et refléter la réalité économique et sociale du travailleur.
+      </p>
+      <p>
+        Une bonne rémunération permet d’assurer la pérennité et la performance de l’entreprise.
+      </p>
+    </section>
+
+    <section id="chap6" class="chapter">
+      <h2>Chapitre 6 : Le syndicalisme</h2>
+
+      <h3>1. Définition du syndicalisme</h3>
+      <p>
+        Un syndicat est une association de personnes défendant un intérêt professionnel commun.
+      </p>
+      <p>
+        Le syndicalisme est une activité ou une doctrine sociale où les travailleurs se regroupent
+        en syndicat pour défendre leurs intérêts.
+      </p>
+      <p>
+        Ces intérêts peuvent concerner la rémunération, les conditions de travail, la sécurité
+        d’emploi et d’autres droits professionnels.
+      </p>
+
+      <h3>2. Origine du syndicalisme</h3>
+      <ul>
+        <li>Le syndicalisme est né au 19e siècle.</li>
+        <li>Il vient du mouvement ouvrier français.</li>
+        <li>Il est une réaction à la non-acceptation du partage des moyens de production par le patronat.</li>
+        <li>Le premier syndicat moderne fut créé en 1933 à Nantes par des typographes.</li>
+        <li>Il s’est développé avec la révolution industrielle et les luttes sociales.</li>
+      </ul>
+
+      <h3>3. Caractéristiques d’un syndicat</h3>
+      <table>
+        <tr>
+          <th>Caractéristique</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>Union des revendications</td>
+          <td>Regroupement autour d’intérêts professionnels communs.</td>
+        </tr>
+        <tr>
+          <td>Lutte collective</td>
+          <td>Action commune pour obtenir gain de cause.</td>
+        </tr>
+        <tr>
+          <td>Efforts pour garantir les intérêts</td>
+          <td>Protection des droits et intérêts des travailleurs.</td>
+        </tr>
+      </table>
+
+      <h3>4. Principales fonctions d’un syndicat</h3>
+      <ul>
+        <li>Négociation des accords d’entreprise avec l’employeur.</li>
+        <li>Représentation des salariés auprès de l’employeur.</li>
+        <li>Information des travailleurs sur la politique de l’entreprise.</li>
+        <li>Assistance en cas de conflits individuels ou collectifs.</li>
+        <li>Défense des droits financiers, matériels, moraux, sociaux et économiques des travailleurs.</li>
+      </ul>
+
+      <div class="important">
+        <strong>À retenir :</strong> Le syndicat négocie les conditions de travail et veille
+        à ce que les salariés puissent vivre dignement.
+      </div>
+
+      <h3>5. Rôle social et économique du syndicalisme</h3>
+      <ul>
+        <li>Défense des intérêts liés à la rémunération.</li>
+        <li>Défense de la sécurité de l’emploi.</li>
+        <li>Défense de la promotion et de la reconnaissance au travail.</li>
+        <li>Lutte contre les discriminations.</li>
+        <li>Lutte contre le harcèlement.</li>
+        <li>Contribution à la stabilité sociale.</li>
+        <li>Amélioration des conditions de travail.</li>
+      </ul>
+
+      <h3>6. Contexte spécifique : exemple de la RDC</h3>
+      <ul>
+        <li>Les enseignants sont parmi les plus mal payés malgré leur rôle important.</li>
+        <li>Les syndicats doivent veiller à la transparence.</li>
+        <li>Les syndicats doivent lutter contre la corruption.</li>
+        <li>Un cadre d’accord entre l’État et d’autres acteurs peut aider à assurer un financement stable.</li>
+      </ul>
+
+      <h3>7. Synthèse</h3>
+      <table>
+        <tr>
+          <th>Notion</th>
+          <th>Définition ou rôle clé</th>
+        </tr>
+        <tr>
+          <td>Syndicat</td>
+          <td>Association défendant un intérêt professionnel commun.</td>
+        </tr>
+        <tr>
+          <td>Syndicalisme</td>
+          <td>Doctrine et activité de défense collective des travailleurs.</td>
+        </tr>
+        <tr>
+          <td>Origine</td>
+          <td>Mouvement ouvrier français du 19e siècle.</td>
+        </tr>
+        <tr>
+          <td>Fonctions principales</td>
+          <td>Négociation, représentation, information et assistance.</td>
+        </tr>
+        <tr>
+          <td>Caractéristiques</td>
+          <td>Union, lutte collective et protection des intérêts.</td>
+        </tr>
+        <tr>
+          <td>Objectifs</td>
+          <td>Amélioration des conditions de travail et de rémunération.</td>
+        </tr>
+      </table>
+
+      <div class="important">
+        <strong>À retenir :</strong> Le syndicalisme est un outil essentiel pour garantir
+        les droits des travailleurs par la négociation collective.
+      </div>
+    </section>
+
+    <section id="chap7" class="chapter">
+      <h2>Chapitre 7 : Le droit du travail et la santé au travail</h2>
+
+      <h3>1. Le droit du travail : cadre et objectifs</h3>
+      <p>
+        Le droit du travail régit les relations entre employeurs et employés pour assurer
+        un fonctionnement harmonieux de l’entreprise.
+      </p>
+
+      <p>Il encadre notamment :</p>
+      <ul>
+        <li>Les conventions collectives.</li>
+        <li>Les négociations sur les rémunérations.</li>
+        <li>Les obligations, droits et devoirs des parties.</li>
+        <li>Les responsabilités.</li>
+        <li>Les conditions de travail.</li>
+        <li>Les règles sur les congés payés.</li>
+        <li>Les avantages sociaux.</li>
+        <li>Les allocations familiales.</li>
+        <li>La gestion des conflits en milieu professionnel.</li>
+        <li>La planification stratégique.</li>
+        <li>L’organisation du travail.</li>
+        <li>La gestion prévisionnelle des effectifs.</li>
+        <li>Le recrutement.</li>
+        <li>L’évaluation des compétences.</li>
+      </ul>
+
+      <div class="important">
+        Le droit du travail garantit le respect des droits des travailleurs et encadre toutes
+        les relations professionnelles.
+      </div>
+
+      <h3>2. La santé et le bien-être au travail</h3>
+      <p>
+        Le bien-être au travail dépasse la simple absence de maladie.
+        Il s’agit d’un sentiment global de satisfaction et d’épanouissement lié
+        à l’activité professionnelle.
+      </p>
+      <p>
+        Selon l’OMS, le bien-être au travail est un état dynamique d’harmonie entre
+        les aptitudes, les besoins et les aspirations du travailleur et les contraintes du travail.
+      </p>
+
+      <h3>Facteurs clés du bien-être au travail</h3>
+      <table>
+        <tr>
+          <th>Facteurs</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>Santé et sûreté</td>
+          <td>Protection contre les risques physiques et psychologiques.</td>
+        </tr>
+        <tr>
+          <td>Rémunération adéquate</td>
+          <td>Salaire juste et reconnaissance du mérite.</td>
+        </tr>
+        <tr>
+          <td>Lutte contre le stress</td>
+          <td>Prévention du surmenage et des tensions.</td>
+        </tr>
+        <tr>
+          <td>Environnement professionnel</td>
+          <td>Conditions matérielles et relationnelles favorables.</td>
+        </tr>
+        <tr>
+          <td>Relations de travail</td>
+          <td>Bonnes relations entre collègues et hiérarchie.</td>
+        </tr>
+      </table>
+
+      <div class="important">
+        La santé et la sûreté des travailleurs sont essentielles à leur productivité et à la
+        performance globale de l’entreprise.
+      </div>
+
+      <h3>3. Santé au travail : obligations et prévention</h3>
+      <ul>
+        <li>Les services de santé et sûreté au travail conseillent employeurs et employés.</li>
+        <li>Ils permettent d’éviter l’altération de la santé en milieu professionnel.</li>
+        <li>La prévention des risques professionnels est une obligation légale.</li>
+        <li>La prévention des accidents de travail est une obligation légale.</li>
+        <li>L’employeur doit fournir des équipements de protection individuelle adaptés.</li>
+        <li>La discrimination fondée sur des problèmes de santé est interdite, sauf exigences physiques justifiées par le poste.</li>
+      </ul>
+
+      <h3>4. Évolution du travail et importance du bien-être</h3>
+      <ul>
+        <li>Le travail n’est plus seulement un moyen de subsistance.</li>
+        <li>Le travail est aussi un vecteur d’épanouissement personnel.</li>
+        <li>Le travail participe à l’identité sociale.</li>
+        <li>Le salarié cherche à donner du sens à son travail.</li>
+        <li>Le salarié cherche à se sentir utile.</li>
+        <li>Le sentiment d’appartenance à l’entreprise favorise l’épanouissement professionnel.</li>
+        <li>La qualité des relations de travail améliore la productivité et le bien-être.</li>
+        <li>L’équilibre entre vie professionnelle et vie familiale est un enjeu majeur.</li>
+      </ul>
+
+      <div class="important">
+        <strong>À retenir :</strong> Le droit du travail et la santé au travail visent à garantir
+        des conditions favorables pour que le travail soit source de dignité, de sécurité
+        et d’épanouissement.
+      </div>
+    </section>
+
+    <section id="questions" class="chapter">
+      <h2>Questions de révision avec réponses</h2>
+
+      <div class="question-card">
+        <h3>1. Qu’est-ce que la GRH ?</h3>
+        <p>Définissez la Gestion des Ressources Humaines.</p>
+        <button onclick="toggleAnswer('r1')">Voir la réponse</button>
+        <div id="r1" class="answer">
+          La GRH est l’ensemble des opérations qui permettent de gérer, développer,
+          motiver et suivre les employés afin d’atteindre les objectifs de l’entreprise.
         </div>
+      </div>
 
-        <div class="question-card">
-          <h3>2. Objectifs d’un organigramme</h3>
-          <p>
-            Quels sont les principaux objectifs d’un organigramme dans une entreprise ?
-          </p>
-
-          <button onclick="toggleAnswer('answer2')">Voir la réponse</button>
-
-          <div class="answer" id="answer2">
-            <p><strong>Réponse :</strong></p>
-            <p>
-              Un organigramme a pour objectif de représenter la structure d’une entreprise.
-              Il permet de montrer les différents services, les niveaux hiérarchiques, les responsabilités
-              de chaque poste et les relations entre les travailleurs.
-            </p>
-            <p>
-              Il aide aussi à mieux comprendre qui dépend de qui, qui prend les décisions,
-              comment circule l’information et comment les tâches sont réparties dans l’entreprise.
-            </p>
-          </div>
+      <div class="question-card">
+        <h3>2. Quelle est l’importance de la GRH ?</h3>
+        <button onclick="toggleAnswer('r2')">Voir la réponse</button>
+        <div id="r2" class="answer">
+          La GRH est importante parce qu’elle place l’humain au centre de la performance.
+          Sans bonne gestion des employés, les ressources financières ne suffisent pas.
         </div>
+      </div>
 
-        <div class="question-card">
-          <h3>3. Les trois niveaux de compétence</h3>
-          <p>
-            Décrivez et expliquez les trois principaux niveaux de compétence au sein d’une entreprise.
-          </p>
-
-          <button onclick="toggleAnswer('answer3')">Voir la réponse</button>
-
-          <div class="answer" id="answer3">
-            <p><strong>Réponse :</strong></p>
-            <p>
-              Les trois principaux niveaux de compétence dans une entreprise sont :
-            </p>
-            <ol>
-              <li>
-                <strong>Les compétences individuelles :</strong> ce sont les connaissances, capacités et qualités propres à un employé.
-                Exemple : un informaticien qui sait programmer ou réparer un ordinateur.
-              </li>
-              <li>
-                <strong>Les compétences collectives :</strong> ce sont les compétences développées par un groupe ou une équipe.
-                Exemple : une équipe informatique capable de gérer ensemble un réseau d’entreprise.
-              </li>
-              <li>
-                <strong>Les compétences organisationnelles :</strong> ce sont les capacités globales de l’entreprise.
-                Exemple : la capacité de l’entreprise à innover, à bien organiser le travail et à atteindre ses objectifs.
-              </li>
-            </ol>
-          </div>
+      <div class="question-card">
+        <h3>3. Quelles sont les grandes écoles de la GRH ?</h3>
+        <button onclick="toggleAnswer('r3')">Voir la réponse</button>
+        <div id="r3" class="answer">
+          Les grandes écoles sont l’école classique, l’école des relations humaines et l’école moderne.
         </div>
+      </div>
 
-        <div class="question-card">
-          <h3>4. Rôle de la formation des employés</h3>
-          <p>
-            Quel est le rôle principal de la formation des employés dans une entreprise ?
-          </p>
-
-          <button onclick="toggleAnswer('answer4')">Voir la réponse</button>
-
-          <div class="answer" id="answer4">
-            <p><strong>Réponse :</strong></p>
-            <p>
-              Le rôle principal de la formation est d’améliorer les compétences des employés
-              afin qu’ils puissent mieux accomplir leur travail.
-            </p>
-            <p>
-              La formation permet aussi d’augmenter la performance, d’adapter les travailleurs
-              aux nouvelles technologies, de renforcer leur efficacité professionnelle, de faciliter
-              l’intégration des nouveaux employés et de favoriser leur motivation et leur fidélisation.
-            </p>
-          </div>
+      <div class="question-card">
+        <h3>4. Qui est Frederick Taylor ?</h3>
+        <button onclick="toggleAnswer('r4')">Voir la réponse</button>
+        <div id="r4" class="answer">
+          Frederick Taylor est le père de l’Organisation Scientifique du Travail, appelée Taylorisme.
         </div>
+      </div>
 
-        <div class="question-card">
-          <h3>5. Différence entre rémunération et salaire</h3>
-          <p>
-            Donnez la différence qui existe entre la rémunération et le salaire.
-          </p>
-
-          <button onclick="toggleAnswer('answer5')">Voir la réponse</button>
-
-          <div class="answer" id="answer5">
-            <p><strong>Réponse :</strong></p>
-            <p>
-              Le <strong>salaire</strong> est la somme d’argent versée régulièrement à un travailleur
-              en échange de son travail.
-            </p>
-            <p>
-              La <strong>rémunération</strong> est plus large que le salaire. Elle comprend le salaire,
-              mais aussi les primes, les bonus, les avantages sociaux, les indemnités et toutes les autres
-              formes de compensation accordées à l’employé.
-            </p>
-            <p>
-              Donc, le salaire fait partie de la rémunération, mais la rémunération ne se limite pas seulement au salaire.
-            </p>
-          </div>
+      <div class="question-card">
+        <h3>5. Expliquez la théorie X et la théorie Y.</h3>
+        <button onclick="toggleAnswer('r5')">Voir la réponse</button>
+        <div id="r5" class="answer">
+          La théorie X considère que l’homme n’aime pas travailler et doit être contrôlé.
+          La théorie Y considère que l’homme aime travailler, peut être responsable et peut s’autogérer.
         </div>
+      </div>
 
-        <div class="question-card">
-          <h3>6. Signification du vandalisme</h3>
-          <p>
-            Expliquez en vos propres mots la signification du terme « vandalisme ».
-          </p>
-
-          <button onclick="toggleAnswer('answer6')">Voir la réponse</button>
-
-          <div class="answer" id="answer6">
-            <p><strong>Réponse :</strong></p>
-            <p>
-              Le vandalisme est le fait de détruire, abîmer ou détériorer volontairement un bien
-              qui appartient à quelqu’un, à une entreprise ou à l’État.
-            </p>
-            <p>
-              Exemple : casser des chaises, détruire du matériel informatique, écrire sur les murs,
-              endommager les portes, les bancs ou les équipements d’une entreprise.
-            </p>
-            <p>
-              En milieu professionnel, le vandalisme nuit au bon fonctionnement de l’entreprise
-              et peut entraîner des sanctions.
-            </p>
-          </div>
+      <div class="question-card">
+        <h3>6. Quels sont les besoins selon Maslow ?</h3>
+        <button onclick="toggleAnswer('r6')">Voir la réponse</button>
+        <div id="r6" class="answer">
+          Les besoins sont : besoins physiologiques, besoins de sécurité, besoins d’appartenance,
+          besoins d’estime et besoins d’accomplissement.
         </div>
+      </div>
 
-        <div class="question-card">
-          <h3>7. Droit du travail en milieu professionnel congolais</h3>
-          <p>
-            En quoi consiste le droit du travail en milieu professionnel congolais ?
-          </p>
-
-          <button onclick="toggleAnswer('answer7')">Voir la réponse</button>
-
-          <div class="answer" id="answer7">
-            <p><strong>Réponse :</strong></p>
-            <p>
-              Le droit du travail en milieu professionnel congolais est l’ensemble des règles qui organisent
-              les relations entre l’employeur et l’employé.
-            </p>
-            <p>
-              Il protège les droits des travailleurs et précise aussi leurs obligations. Il encadre notamment
-              le contrat de travail, la rémunération, les heures de travail, les congés, les avantages sociaux,
-              la sécurité au travail, la gestion des conflits et les conditions de travail.
-            </p>
-            <p>
-              Son objectif est d’assurer un fonctionnement harmonieux de l’entreprise tout en protégeant
-              la dignité, la sécurité et les intérêts des travailleurs.
-            </p>
-          </div>
+      <div class="question-card">
+        <h3>7. Citez les phases du recrutement.</h3>
+        <button onclick="toggleAnswer('r7')">Voir la réponse</button>
+        <div id="r7" class="answer">
+          Identification des besoins, lancement des appels d’offres, sélection des candidatures,
+          entretiens, décision d’embauche, accueil et intégration.
         </div>
+      </div>
 
+      <div class="question-card">
+        <h3>8. Quel est le rôle de la formation ?</h3>
+        <button onclick="toggleAnswer('r8')">Voir la réponse</button>
+        <div id="r8" class="answer">
+          La formation permet d’améliorer les compétences, d’augmenter la performance,
+          d’adapter les employés aux nouvelles technologies et de favoriser leur fidélisation.
+        </div>
+      </div>
+
+      <div class="question-card">
+        <h3>9. Qu’est-ce que la GPEC ?</h3>
+        <button onclick="toggleAnswer('r9')">Voir la réponse</button>
+        <div id="r9" class="answer">
+          La GPEC est la Gestion Prévisionnelle des Emplois et des Compétences.
+          Elle vise à réduire les écarts entre les besoins de l’entreprise et les ressources disponibles.
+        </div>
+      </div>
+
+      <div class="question-card">
+        <h3>10. Quels sont les types de compétences ?</h3>
+        <button onclick="toggleAnswer('r10')">Voir la réponse</button>
+        <div id="r10" class="answer">
+          Les compétences individuelles, collectives et organisationnelles.
+        </div>
+      </div>
+
+      <div class="question-card">
+        <h3>11. Quelle est la différence entre salaire et rémunération ?</h3>
+        <button onclick="toggleAnswer('r11')">Voir la réponse</button>
+        <div id="r11" class="answer">
+          Le salaire est l’argent versé pour le travail. La rémunération est plus large :
+          elle comprend le salaire, les primes, les bonus et les avantages.
+        </div>
+      </div>
+
+      <div class="question-card">
+        <h3>12. Qu’est-ce qu’un syndicat ?</h3>
+        <button onclick="toggleAnswer('r12')">Voir la réponse</button>
+        <div id="r12" class="answer">
+          Un syndicat est une association de personnes qui défendent un intérêt professionnel commun.
+        </div>
+      </div>
+
+      <div class="question-card">
+        <h3>13. Quelles sont les fonctions d’un syndicat ?</h3>
+        <button onclick="toggleAnswer('r13')">Voir la réponse</button>
+        <div id="r13" class="answer">
+          Les fonctions d’un syndicat sont la négociation, la représentation, l’information,
+          l’assistance et la défense des droits des travailleurs.
+        </div>
+      </div>
+
+      <div class="question-card">
+        <h3>14. En quoi consiste le droit du travail ?</h3>
+        <button onclick="toggleAnswer('r14')">Voir la réponse</button>
+        <div id="r14" class="answer">
+          Le droit du travail encadre les relations entre employeurs et employés.
+          Il protège les droits des travailleurs et organise les conditions de travail.
+        </div>
+      </div>
+
+      <div class="question-card">
+        <h3>15. Qu’est-ce que le bien-être au travail ?</h3>
+        <button onclick="toggleAnswer('r15')">Voir la réponse</button>
+        <div id="r15" class="answer">
+          Le bien-être au travail est un sentiment de satisfaction, d’équilibre et
+          d’épanouissement dans l’activité professionnelle.
+        </div>
       </div>
     </section>
 
     <section id="quiz" class="quiz-box">
-      <h2>Quiz rapide</h2>
+      <h2>Quiz automatique</h2>
 
       <form id="quizForm">
 
         <div class="quiz-question">
-          <h4>1. Quelle est la première étape du recrutement ?</h4>
-          <label><input type="radio" name="q1" value="0"> L’entretien d’embauche</label>
-          <label><input type="radio" name="q1" value="1"> L’identification du besoin</label>
-          <label><input type="radio" name="q1" value="0"> La signature du contrat</label>
+          <h4>1. La GRH place au centre de l’organisation :</h4>
+          <label><input type="radio" name="q1" value="1"> L’humain</label>
+          <label><input type="radio" name="q1" value="0"> Les machines seulement</label>
+          <label><input type="radio" name="q1" value="0"> Les bâtiments</label>
         </div>
 
         <div class="quiz-question">
-          <h4>2. À quoi sert un organigramme ?</h4>
-          <label><input type="radio" name="q2" value="1"> À montrer la structure et la hiérarchie de l’entreprise</label>
-          <label><input type="radio" name="q2" value="0"> À calculer le salaire uniquement</label>
-          <label><input type="radio" name="q2" value="0"> À remplacer le règlement intérieur</label>
+          <h4>2. Taylor est lié à :</h4>
+          <label><input type="radio" name="q2" value="1"> L’Organisation Scientifique du Travail</label>
+          <label><input type="radio" name="q2" value="0"> La théorie des besoins</label>
+          <label><input type="radio" name="q2" value="0"> Le syndicalisme</label>
         </div>
 
         <div class="quiz-question">
-          <h4>3. Les compétences individuelles concernent :</h4>
-          <label><input type="radio" name="q3" value="1"> Un employé précis</label>
-          <label><input type="radio" name="q3" value="0"> Toute l’économie du pays</label>
-          <label><input type="radio" name="q3" value="0"> Les bâtiments de l’entreprise</label>
+          <h4>3. Selon Maslow, les besoins d’appartenance concernent :</h4>
+          <label><input type="radio" name="q3" value="1"> L’intégration sociale</label>
+          <label><input type="radio" name="q3" value="0"> La paie uniquement</label>
+          <label><input type="radio" name="q3" value="0"> La sanction</label>
         </div>
 
         <div class="quiz-question">
-          <h4>4. Le rôle de la formation est :</h4>
-          <label><input type="radio" name="q4" value="1"> D’améliorer les compétences et la performance</label>
-          <label><input type="radio" name="q4" value="0"> De supprimer les employés</label>
-          <label><input type="radio" name="q4" value="0"> De diminuer les connaissances</label>
+          <h4>4. La première étape du recrutement est :</h4>
+          <label><input type="radio" name="q4" value="1"> L’identification des besoins</label>
+          <label><input type="radio" name="q4" value="0"> L’intégration</label>
+          <label><input type="radio" name="q4" value="0"> La sanction</label>
         </div>
 
         <div class="quiz-question">
-          <h4>5. La rémunération comprend :</h4>
-          <label><input type="radio" name="q5" value="1"> Le salaire, les primes, les bonus et les avantages</label>
-          <label><input type="radio" name="q5" value="0"> Seulement les absences</label>
-          <label><input type="radio" name="q5" value="0"> Seulement les sanctions</label>
+          <h4>5. La GPEC sert à :</h4>
+          <label><input type="radio" name="q5" value="1"> Anticiper les besoins en emplois et compétences</label>
+          <label><input type="radio" name="q5" value="0"> Supprimer les employés</label>
+          <label><input type="radio" name="q5" value="0"> Remplacer le droit du travail</label>
         </div>
 
         <div class="quiz-question">
-          <h4>6. Le vandalisme signifie :</h4>
-          <label><input type="radio" name="q6" value="1"> Détruire ou abîmer volontairement un bien</label>
-          <label><input type="radio" name="q6" value="0"> Former les employés</label>
-          <label><input type="radio" name="q6" value="0"> Recruter un directeur</label>
+          <h4>6. Le salaire fait partie de :</h4>
+          <label><input type="radio" name="q6" value="1"> La rémunération</label>
+          <label><input type="radio" name="q6" value="0"> La sanction</label>
+          <label><input type="radio" name="q6" value="0"> L’organigramme</label>
         </div>
 
         <div class="quiz-question">
-          <h4>7. Le droit du travail encadre :</h4>
-          <label><input type="radio" name="q7" value="1"> Les relations entre employeurs et employés</label>
-          <label><input type="radio" name="q7" value="0"> Les loisirs uniquement</label>
-          <label><input type="radio" name="q7" value="0"> Les réseaux sociaux seulement</label>
+          <h4>7. Un syndicat défend :</h4>
+          <label><input type="radio" name="q7" value="1"> Les intérêts professionnels des travailleurs</label>
+          <label><input type="radio" name="q7" value="0"> Les machines uniquement</label>
+          <label><input type="radio" name="q7" value="0"> Les clients seulement</label>
+        </div>
+
+        <div class="quiz-question">
+          <h4>8. Le droit du travail encadre :</h4>
+          <label><input type="radio" name="q8" value="1"> Les relations entre employeurs et employés</label>
+          <label><input type="radio" name="q8" value="0"> Les loisirs privés seulement</label>
+          <label><input type="radio" name="q8" value="0"> Les réseaux sociaux uniquement</label>
+        </div>
+
+        <div class="quiz-question">
+          <h4>9. La santé au travail comprend :</h4>
+          <label><input type="radio" name="q9" value="1"> La prévention des risques professionnels</label>
+          <label><input type="radio" name="q9" value="0"> La suppression des congés</label>
+          <label><input type="radio" name="q9" value="0"> Le refus des protections</label>
+        </div>
+
+        <div class="quiz-question">
+          <h4>10. La rémunération doit être :</h4>
+          <label><input type="radio" name="q10" value="1"> Juste, légale et motivante</label>
+          <label><input type="radio" name="q10" value="0"> Injuste et discriminatoire</label>
+          <label><input type="radio" name="q10" value="0"> Cachée aux employés</label>
         </div>
 
         <button type="button" onclick="calculateScore()">Corriger le quiz</button>
@@ -483,82 +1291,52 @@
       <div id="result"></div>
     </section>
 
-    <section id="correction" class="quiz-box">
-      <h2>Correction rapide à retenir</h2>
-
-      <div class="note">
-        <p><strong>1. Recrutement :</strong> besoin, profil, annonce, sélection, entretien, décision, embauche, accueil et intégration.</p>
-      </div>
-
-      <div class="note">
-        <p><strong>2. Organigramme :</strong> il montre la structure, la hiérarchie, les responsabilités et les relations entre services.</p>
-      </div>
-
-      <div class="note">
-        <p><strong>3. Compétences :</strong> individuelles, collectives et organisationnelles.</p>
-      </div>
-
-      <div class="note">
-        <p><strong>4. Formation :</strong> elle développe les compétences et améliore la performance des employés.</p>
-      </div>
-
-      <div class="note">
-        <p><strong>5. Salaire et rémunération :</strong> le salaire est une partie de la rémunération. La rémunération comprend aussi les primes, bonus et avantages.</p>
-      </div>
-
-      <div class="note">
-        <p><strong>6. Vandalisme :</strong> destruction ou dégradation volontaire d’un bien.</p>
-      </div>
-
-      <div class="note">
-        <p><strong>7. Droit du travail :</strong> règles qui organisent les relations professionnelles entre employeurs et employés.</p>
-      </div>
-    </section>
-
   </div>
 
   <footer>
-    <p>© 2026 Study With Me - Révision GRH</p>
-    <p>Créé pour aider les étudiants à mieux préparer leurs examens.</p>
+    <p>© 2026 Study With Me - Gestion des Ressources Humaines</p>
+    <p>Site de révision pour aider les étudiants à préparer leurs examens.</p>
   </footer>
 
   <script>
     function toggleAnswer(id) {
-      var answer = document.getElementById(id);
+      var element = document.getElementById(id);
 
-      if (answer.style.display === "block") {
-        answer.style.display = "none";
+      if (element.style.display === "block") {
+        element.style.display = "none";
       } else {
-        answer.style.display = "block";
+        element.style.display = "block";
       }
     }
 
     function calculateScore() {
       var form = document.getElementById("quizForm");
-      var result = document.getElementById("result");
       var score = 0;
-      var total = 7;
+      var total = 10;
 
       for (var i = 1; i <= total; i++) {
-        var question = form["q" + i];
+        var answers = form["q" + i];
 
-        for (var j = 0; j < question.length; j++) {
-          if (question[j].checked) {
-            score += parseInt(question[j].value);
+        for (var j = 0; j < answers.length; j++) {
+          if (answers[j].checked) {
+            score += parseInt(answers[j].value);
           }
         }
       }
 
+      var result = document.getElementById("result");
       var message = "";
 
-      if (score === 7) {
+      if (score === 10) {
         message = "Excellent ! Tu as obtenu " + score + "/" + total + ".";
-      } else if (score >= 5) {
-        message = "Bien ! Tu as obtenu " + score + "/" + total + ". Continue comme ça.";
-      } else if (score >= 3) {
-        message = "Moyen. Tu as obtenu " + score + "/" + total + ". Relis encore les réponses.";
+      } else if (score >= 8) {
+        message = "Très bien ! Tu as obtenu " + score + "/" + total + ".";
+      } else if (score >= 6) {
+        message = "Bien ! Tu as obtenu " + score + "/" + total + ". Continue à réviser.";
+      } else if (score >= 4) {
+        message = "Moyen. Tu as obtenu " + score + "/" + total + ". Relis encore le cours.";
       } else {
-        message = "Tu as obtenu " + score + "/" + total + ". Il faut encore réviser.";
+        message = "Tu as obtenu " + score + "/" + total + ". Il faut beaucoup réviser.";
       }
 
       result.innerHTML = message;
